@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Fitness — Pausiar</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080a0e;
+    --surface: #0f1318;
+    --surface2: #161c24;
+    --accent: #e8ff00;
+    --accent2: #ff4d00;
+    --accent3: #00d4ff;
+    --text: #f0f2f5;
+    --muted: #6b7480;
+    --border: rgba(255,255,255,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 3rem;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 20%, rgba(232,255,0,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,212,255,0.05) 0%, transparent 60%);
+  }
+
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 13rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s forwards;
+  }
+
+  .hero-title span { color: var(--accent); }
+
+  .hero-sub {
+    margin-top: 2rem;
+    max-width: 480px;
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.35s forwards;
+  }
+
+  .stats-bar {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.5s forwards;
+  }
+
+  .stat {
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+  }
+
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .scroll-hint::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--muted);
+    animation: scrollLine 1.5s infinite;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  /* WEEK GRID */
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .day-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(232,255,0,0.2);
+  }
+
+  .day-card.rest {
+    border-color: rgba(107,116,128,0.2);
+    opacity: 0.7;
+  }
+
+  .day-header {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .day-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  .day-focus {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  .tag-push { background: rgba(232,255,0,0.1); color: var(--accent); }
+  .tag-pull { background: rgba(0,212,255,0.1); color: var(--accent3); }
+  .tag-legs { background: rgba(255,77,0,0.1); color: var(--accent2); }
+  .tag-full { background: rgba(255,255,255,0.05); color: var(--muted); }
+  .tag-rest { background: transparent; color: var(--muted); }
+
+  .day-body { padding: 1.5rem; }
+
+  .exercise-list { list-style: none; }
+
+  .exercise-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+  }
+
+  .exercise-item:last-child { border-bottom: none; }
+
+  .ex-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .ex-sets {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .rest-content {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .rest-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+  /* MONTH TIMELINE */
+  .month-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .month-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+
+  .month-card:hover { border-color: rgba(232,255,0,0.15); }
+
+  .month-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .month-week-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  .month-desc h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.7rem;
+  }
+
+  .month-desc p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .focus-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pill {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  .pill.active { border-color: var(--accent); color: var(--accent); }
+
+  /* 3 MONTH ROADMAP */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .roadmap { grid-template-columns: 1fr; }
+    .month-card { grid-template-columns: 1fr; gap: 0.5rem; }
+    .hero { padding: 3rem 1.5rem 2rem; }
+    .section { padding: 3rem 1.5rem; }
+    .stats-bar { gap: 1.2rem; }
+  }
+
+  .phase-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+  }
+
+  .phase-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232,255,0,0.2);
+  }
+
+  .phase-top {
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .phase-1 .phase-top { background: linear-gradient(135deg, #0f1318 0%, #1a1f10 100%); }
+  .phase-2 .phase-top { background: linear-gradient(135deg, #0f1318 0%, #0e1a1f 100%); }
+  .phase-3 .phase-top { background: linear-gradient(135deg, #0f1318 0%, #1a0e0e 100%); }
+
+  .phase-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    line-height: 1;
+    opacity: 0.08;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    color: var(--text);
+  }
+
+  .phase-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .phase-1 .phase-tag { color: var(--accent); }
+  .phase-2 .phase-tag { color: var(--accent3); }
+  .phase-3 .phase-tag { color: var(--accent2); }
+
+  .phase-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+  }
+
+  .phase-body { padding: 1.5rem 2rem 2rem; }
+
+  .phase-goal {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .phase-metrics { display: grid; gap: 0.8rem; }
+
+  .metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .metric:last-child { border-bottom: none; }
+
+  .metric-label { color: var(--muted); }
+
+  .metric-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text);
+  }
+
+  /* NUTRITION */
+  .nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .nut-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.8rem;
+  }
+
+  .nut-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+  .nut-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .nut-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .nut-highlight {
+    margin-top: 1rem;
+    padding: 0.6rem 0.9rem;
+    background: rgba(232,255,0,0.05);
+    border-left: 2px solid var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  /* PROGRESS BAR */
+  .progress-section {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .progress-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  .progress-list { display: grid; gap: 1.2rem; }
+
+  .progress-item {}
+
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+  }
+
+  .progress-name { font-size: 0.85rem; }
+
+  .progress-pct {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+  }
+
+  .bar-track {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+    width: 0;
+    animation: growBar 1.2s ease forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .bar-fill.blue { background: var(--accent3); }
+  .bar-fill.orange { background: var(--accent2); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .footer-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 3rem;
+    max-width: calc(1200px - 6rem);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes growBar {
+    to { width: var(--target, 0%); }
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,10,14,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    footer { padding: 2rem 1.5rem; }
+    .divider { margin: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">PAUSIAR.FIT</div>
+  <ul class="nav-links">
+    <li><a href="#semana">Semana</a></li>
+    <li><a href="#mes">Mes</a></li>
+    <li><a href="#trimestre">3 Meses</a></li>
+    <li><a href="#nutricion">Nutrición</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">// Plan de Entrenamiento Personalizado — 2024</div>
+  <h1 class="hero-title">BUILD<br><span>MASS.</span></h1>
+  <p class="hero-sub">Plan de 3 meses diseñado para ganar masa muscular, fuerza y definición. Entrenamiento en casa con mancuernas de 5 kg + peso corporal. 6 días/semana.</p>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-val">20</div>
+      <div class="stat-label">Años</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">1.83</div>
+      <div class="stat-label">Metros</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">58.8</div>
+      <div class="stat-label">KG actuales</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">~75</div>
+      <div class="stat-label">KG objetivo</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">6×</div>
+      <div class="stat-label">Días / semana</div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll para ver el plan</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEMANA -->
+<section class="section" id="semana">
+  <div class="section-header">
+    <div class="section-num">01 —</div>
+    <h2 class="section-title">Rutina Semanal</h2>
+  </div>
+
+  <div class="week-grid">
+
+    <!-- LUNES -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Lunes</div>
+        <div class="day-focus tag-push">Push · Pecho & Tríceps</div>
+      </div>
+      <div class="day-body">
+        <ul class="exercise-list">
+          <li class="exercise-item"><span class="ex-name">Flexiones estándar</span><span class="ex-sets">4 × 15–20</span></li>
+          <li class="exercise-item"><span class="ex-name">Flexiones inclinadas (manos elevadas)</span><span class="ex-sets">3 × 12–15</span></li>
+          <li class="exercise-item"><span class="ex-name">Flexiones declinadas (pies elevados)</span><span class="ex-sets">3 × 10–12</span></li>
+          <li class="exercise-item"><span class="ex-name">Press de hombros con mancuernas</span><span class="ex-sets">4 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Elevaciones laterales con mancuernas</span><span class="ex-sets">3 × 15</span></li>
+          <li class="exercise-item"><span class="ex-name">Extensión de tríceps sobre cabeza</span><span class="ex-sets">3 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Fondos entre sillas</span><span class="ex-sets">3 × 12–15</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MARTES -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Martes</div>
+        <div class="day-focus tag-pull">Pull · Espalda & Bíceps</div>
+      </div>
+      <div class="day-body">
+        <ul class="exercise-list">
+          <li class="exercise-item"><span class="ex-name">Remo con mancuerna a una mano</span><span class="ex-sets">4 × 12 c/lado</span></li>
+          <li class="exercise-item"><span class="ex-name">Remo bilateral con mancuernas (90°)</span><span class="ex-sets">3 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Curl de bíceps alternado</span><span class="ex-sets">4 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Curl martillo</span><span class="ex-sets">3 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Superman (extensiones de espalda)</span><span class="ex-sets">3 × 15</span></li>
+          <li class="exercise-item"><span class="ex-name">Encogimientos de hombros (trapecios)</span><span class="ex-sets">3 × 15</span></li>
+          <li class="exercise-item"><span class="ex-name">Remo al mentón</span><span class="ex-sets">3 × 12</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MIÉRCOLES -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Miércoles</div>
+        <div class="day-focus tag-legs">Legs · Piernas & Glúteos</div>
+      </div>
+      <div class="day-body">
+        <ul class="exercise-list">
+          <li class="exercise-item"><span class="ex-name">Sentadilla con mancuernas</span><span class="ex-sets">4 × 15</span></li>
+          <li class="exercise-item"><span class="ex-name">Zancadas alternadas con mancuernas</span><span class="ex-sets">3 × 12 c/lado</span></li>
+          <li class="exercise-item"><span class="ex-name">Sentadilla sumo con mancuerna</span><span class="ex-sets">3 × 15</span></li>
+          <li class="exercise-item"><span class="ex-name">Peso muerto rumano con mancuernas</span><span class="ex-sets">4 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Puente de glúteos (hip thrust)</span><span class="ex-sets">4 × 15</span></li>
+          <li class="exercise-item"><span class="ex-name">Elevaciones de gemelos de pie</span><span class="ex-sets">4 × 20</span></li>
+          <li class="exercise-item"><span class="ex-name">Sentadilla búlgara</span><span class="ex-sets">3 × 10 c/lado</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- JUEVES -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Jueves</div>
+        <div class="day-focus tag-push">Push · Hombros & Core</div>
+      </div>
+      <div class="day-body">
+        <ul class="exercise-list">
+          <li class="exercise-item"><span class="ex-name">Press militar con mancuernas</span><span class="ex-sets">4 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Elevaciones frontales alternadas</span><span class="ex-sets">3 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Elevaciones laterales 21s</span><span class="ex-sets">3 × 21</span></li>
+          <li class="exercise-item"><span class="ex-name">Plancha frontal</span><span class="ex-sets">3 × 60s</span></li>
+          <li class="exercise-item"><span class="ex-name">Plancha lateral</span><span class="ex-sets">3 × 40s c/lado</span></li>
+          <li class="exercise-item"><span class="ex-name">Crunches con rotación</span><span class="ex-sets">3 × 20</span></li>
+          <li class="exercise-item"><span class="ex-name">Levantamiento de piernas tumbado</span><span class="ex-sets">3 × 15</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIERNES -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Viernes</div>
+        <div class="day-focus tag-pull">Pull · Espalda & Brazos</div>
+      </div>
+      <div class="day-body">
+        <ul class="exercise-list">
+          <li class="exercise-item"><span class="ex-name">Remo con mancuernas inclinado</span><span class="ex-sets">4 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Curl concentrado de bíceps</span><span class="ex-sets">3 × 12 c/lado</span></li>
+          <li class="exercise-item"><span class="ex-name">Curl 21s con mancuernas</span><span class="ex-sets">3 × 21</span></li>
+          <li class="exercise-item"><span class="ex-name">Extensión de tríceps acostado</span><span class="ex-sets">3 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Kickbacks de tríceps</span><span class="ex-sets">3 × 15 c/lado</span></li>
+          <li class="exercise-item"><span class="ex-name">Reverse curl (antebrazo)</span><span class="ex-sets">3 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Superman pulsado</span><span class="ex-sets">3 × 12</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SÁBADO -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Sábado</div>
+        <div class="day-focus tag-full">Full Body + Cardio</div>
+      </div>
+      <div class="day-body">
+        <ul class="exercise-list">
+          <li class="exercise-item"><span class="ex-name">Burpees</span><span class="ex-sets">3 × 10</span></li>
+          <li class="exercise-item"><span class="ex-name">Sentadilla + press con mancuernas</span><span class="ex-sets">3 × 12</span></li>
+          <li class="exercise-item"><span class="ex-name">Flexiones diamante</span><span class="ex-sets">3 × 10</span></li>
+          <li class="exercise-item"><span class="ex-name">Mountain climbers</span><span class="ex-sets">3 × 30s</span></li>
+          <li class="exercise-item"><span class="ex-name">Swing con mancuerna (simula kettlebell)</span><span class="ex-sets">3 × 15</span></li>
+          <li class="exercise-item"><span class="ex-name">Saltos al cajón / sentadilla explosiva</span><span class="ex-sets">3 × 10</span></li>
+          <li class="exercise-item"><span class="ex-name">Plancha con toque de hombros</span><span class="ex-sets">3 × 20</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DOMINGO -->
+    <div class="day-card rest">
+      <div class="day-header">
+        <div class="day-name">Domingo</div>
+        <div class="day-focus tag-rest">Descanso Activo</div>
+      </div>
+      <div class="rest-content">
+        <div class="rest-icon">♻️</div>
+        <p>Caminar 30–45 min · Estiramientos · Movilidad articular · Foam rolling. El descanso es donde el músculo CRECE. No lo saltees.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="progress-section">
+    <div class="progress-title">Distribución muscular semanal</div>
+    <div class="progress-list">
+      <div class="progress-item">
+        <div class="progress-meta"><span class="progress-name">Pecho</span><span class="progress-pct">Alta frecuencia</span></div>
+        <div class="bar-track"><div class="bar-fill" style="--target:85%; --delay:0.1s"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-meta"><span class="progress-name">Espalda</span><span class="progress-pct">Alta frecuencia</span></div>
+        <div class="bar-track"><div class="bar-fill" style="--target:80%; --delay:0.2s"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-meta"><span class="progress-name">Hombros</span><span class="progress-pct">Media frecuencia</span></div>
+        <div class="bar-track"><div class="bar-fill blue" style="--target:70%; --delay:0.3s"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-meta"><span class="progress-name">Brazos (bíceps + tríceps)</span><span class="progress-pct">Alta frecuencia</span></div>
+        <div class="bar-track"><div class="bar-fill blue" style="--target:90%; --delay:0.4s"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-meta"><span class="progress-name">Piernas & Glúteos</span><span class="progress-pct">Media frecuencia</span></div>
+        <div class="bar-track"><div class="bar-fill orange" style="--target:65%; --delay:0.5s"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-meta"><span class="progress-name">Core / Abdomen</span><span class="progress-pct">Integrado diario</span></div>
+        <div class="bar-track"><div class="bar-fill orange" style="--target:75%; --delay:0.6s"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MES -->
+<section class="section" id="mes">
+  <div class="section-header">
+    <div class="section-num">02 —</div>
+    <h2 class="section-title">Plan Mensual</h2>
+  </div>
+
+  <div class="month-grid">
+
+    <div class="month-card">
+      <div>
+        <div class="month-label">S1</div>
+        <div class="month-week-label">Semana 1</div>
+      </div>
+      <div class="month-desc">
+        <h3>Activación & Aprendizaje Motor</h3>
+        <p>Primera semana de adaptación. El objetivo es aprender la técnica de cada ejercicio y activar los grupos musculares dormidos. Descanso de 90s entre series. No llevar al fallo muscular.</p>
+        <div class="focus-pills">
+          <span class="pill active">Técnica</span>
+          <span class="pill active">Volumen bajo</span>
+          <span class="pill">~60% esfuerzo</span>
+          <span class="pill">Descanso 90s</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="month-card">
+      <div>
+        <div class="month-label">S2</div>
+        <div class="month-week-label">Semana 2</div>
+      </div>
+      <div class="month-desc">
+        <h3>Construcción de Base</h3>
+        <p>Aumentas 1–2 repeticiones por serie respecto a la semana anterior. Empiezas a sentir el músculo trabajar. Introducir el concepto de "conexión mente-músculo" en cada rep. Descanso 75s.</p>
+        <div class="focus-pills">
+          <span class="pill active">+ Reps</span>
+          <span class="pill active">Mind-muscle</span>
+          <span class="pill">~70% esfuerzo</span>
+          <span class="pill">Descanso 75s</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="month-card">
+      <div>
+        <div class="month-label">S3</div>
+        <div class="month-week-label">Semana 3</div>
+      </div>
+      <div class="month-desc">
+        <h3>Sobrecarga Progresiva</h3>
+        <p>Semana intensa. Empujas al fallo en las últimas 1–2 series de cada ejercicio. Reducción del descanso a 60s para mayor densidad de entrenamiento. El cuerpo empieza a adaptarse visualmente.</p>
+        <div class="focus-pills">
+          <span class="pill active">Al fallo</span>
+          <span class="pill active">Densidad</span>
+          <span class="pill">~85% esfuerzo</span>
+          <span class="pill">Descanso 60s</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="month-card">
+      <div>
+        <div class="month-label">S4</div>
+        <div class="month-week-label">Semana 4</div>
+      </div>
+      <div class="month-desc">
+        <h3>Deload & Consolidación</h3>
+        <p>Semana de deload: reducir volumen al 60% para dejar al cuerpo consolidar las ganancias. No es una semana de descanso total — sigue entrenando pero con menos intensidad. El músculo se forma AQUÍ.</p>
+        <div class="focus-pills">
+          <span class="pill active">Deload</span>
+          <span class="pill active">Recuperación</span>
+          <span class="pill">~50% volumen</span>
+          <span class="pill">Descanso 120s</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 3 MESES -->
+<section class="section" id="trimestre">
+  <div class="section-header">
+    <div class="section-num">03 —</div>
+    <h2 class="section-title">Roadmap 3 Meses</h2>
+  </div>
+
+  <div class="roadmap">
+
+    <div class="phase-card phase-1">
+      <div class="phase-top">
+        <div class="phase-num">1</div>
+        <div class="phase-tag">// Mes 1 — Fundación</div>
+        <div class="phase-title">CIMIENTOS<br>SÓLIDOS</div>
+      </div>
+      <div class="phase-body">
+        <p class="phase-goal">Construir la base neuromuscular. Tu cuerpo aprende a reclutar fibras musculares eficientemente. No esperes grandes cambios visuales — el trabajo interno es brutal.</p>
+        <div class="phase-metrics">
+          <div class="metric"><span class="metric-label">Objetivo peso</span><span class="metric-val">+1.5 / +2 kg</span></div>
+          <div class="metric"><span class="metric-label">Calorías diarias</span><span class="metric-val">~3,000–3,200 kcal</span></div>
+          <div class="metric"><span class="metric-label">Proteína</span><span class="metric-val">140–160g / día</span></div>
+          <div class="metric"><span class="metric-label">Descanso</span><span class="metric-val">7–9h sueño</span></div>
+          <div class="metric"><span class="metric-label">Hidratación</span><span class="metric-val">3L agua / día</span></div>
+          <div class="metric"><span class="metric-label">Estructura</span><span class="metric-val">PPL × 2 + Full</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card phase-2">
+      <div class="phase-top">
+        <div class="phase-num">2</div>
+        <div class="phase-tag">// Mes 2 — Desarrollo</div>
+        <div class="phase-title">MASA EN<br>MOVIMIENTO</div>
+      </div>
+      <div class="phase-body">
+        <p class="phase-goal">Las adaptaciones se vuelven visibles. Aumentas intensidad y volumen. Introduces técnicas avanzadas como series descendentes, superseries y tiempo bajo tensión (TUT). Primer cambio real en el espejo.</p>
+        <div class="phase-metrics">
+          <div class="metric"><span class="metric-label">Objetivo peso</span><span class="metric-val">+2 / +3 kg más</span></div>
+          <div class="metric"><span class="metric-label">Calorías diarias</span><span class="metric-val">~3,200–3,400 kcal</span></div>
+          <div class="metric"><span class="metric-label">Técnicas nuevas</span><span class="metric-val">TUT · Drop sets</span></div>
+          <div class="metric"><span class="metric-label">Superseries</span><span class="metric-val">Bíceps + Tríceps</span></div>
+          <div class="metric"><span class="metric-label">Cardio</span><span class="metric-val">HIIT 2× semana</span></div>
+          <div class="metric"><span class="metric-label">Frecuencia</span><span class="metric-val">6 días / semana</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card phase-3">
+      <div class="phase-top">
+        <div class="phase-num">3</div>
+        <div class="phase-tag">// Mes 3 — Consolidación</div>
+        <div class="phase-title">DEFINE<br>LA FORMA</div>
+      </div>
+      <div class="phase-body">
+        <p class="phase-goal">Maximizar ganancias musculares y empezar a esculpir el cuerpo. Mayor intensidad, descanso más corto, introducción de isométricos y trabajo unilateral para corregir desequilibrios. Resultados visibles y medibles.</p>
+        <div class="phase-metrics">
+          <div class="metric"><span class="metric-label">Objetivo peso</span><span class="metric-val">~65–67 kg</span></div>
+          <div class="metric"><span class="metric-label">Calorías diarias</span><span class="metric-val">~3,400–3,600 kcal</span></div>
+          <div class="metric"><span class="metric-label">Técnicas avanzadas</span><span class="metric-val">Isométricos</span></div>
+          <div class="metric"><span class="metric-label">Trabajo unilateral</span><span class="metric-val">Corrección deseq.</span></div>
+          <div class="metric"><span class="metric-label">Fotos de progreso</span><span class="metric-val">Cada 2 semanas</span></div>
+          <div class="metric"><span class="metric-label">Próximo paso</span><span class="metric-val">Evaluar y ajustar</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NUTRICIÓN -->
+<section class="section" id="nutricion">
+  <div class="section-header">
+    <div class="section-num">04 —</div>
+    <h2 class="section-title">Nutrición & Hábitos</h2>
+  </div>
+
+  <div class="nutrition-grid">
+
+    <div class="nut-card">
+      <div class="nut-icon">🥩</div>
+      <div class="nut-title">Proteína — El Rey</div>
+      <p class="nut-desc">Con 58.8 kg necesitas mínimo 140–160g de proteína diaria para construir músculo. Come cada 3–4 horas. Fuentes: huevos, pollo, atún, ternera, legumbres, queso cottage.</p>
+      <div class="nut-highlight">2.5g proteína × kg corporal / día</div>
+    </div>
+
+    <div class="nut-card">
+      <div class="nut-icon">🍚</div>
+      <div class="nut-title">Carbohidratos — Combustible</div>
+      <p class="nut-desc">No tengas miedo a los carbos. Son tu fuente de energía. Arroz, avena, pasta, patata, pan integral. Consúmelos principalmente en el pre y post entrenamiento.</p>
+      <div class="nut-highlight">~400–500g carbos / día</div>
+    </div>
+
+    <div class="nut-card">
+      <div class="nut-icon">🥑</div>
+      <div class="nut-title">Grasas Saludables</div>
+      <p class="nut-desc">Las grasas regulan las hormonas — incluido el testosterona, clave para ganar músculo. Aguacate, aceite de oliva, frutos secos, yema de huevo. No las elimines.</p>
+      <div class="nut-highlight">~80–100g grasas / día</div>
+    </div>
+
+    <div class="nut-card">
+      <div class="nut-icon">⏰</div>
+      <div class="nut-title">Timing Nutricional</div>
+      <p class="nut-desc">Pre-entreno: carbos + proteína 1h antes. Post-entreno: proteína rápida en los primeros 30–60 min. Antes de dormir: caseína o huevos para recuperación nocturna.</p>
+      <div class="nut-highlight">Pre / Intra / Post workout</div>
+    </div>
+
+    <div class="nut-card">
+      <div class="nut-icon">💊</div>
+      <div class="nut-title">Suplementación Básica</div>
+      <p class="nut-desc">No son magia, son soporte. Creatina monohidrato (5g/día, el más efectivo), proteína de suero (si no llegas a tus objetivos de comida), vitamina D3, omega-3.</p>
+      <div class="nut-highlight">Creatina 5g/día — sin ciclar</div>
+    </div>
+
+    <div class="nut-card">
+      <div class="nut-icon">😴</div>
+      <div class="nut-title">Recuperación — El Secreto</div>
+      <p class="nut-desc">El músculo crece mientras duermes, no mientras entrenas. 7–9h de sueño son innegociables. El estrés crónico destruye el cortisol y frena las ganancias. Gestiona ambos.</p>
+      <div class="nut-highlight">7–9h sueño · 3L agua / día</div>
+    </div>
+
+  </div>
+
+  <!-- REGLAS DE ORO -->
+  <div class="progress-section" style="margin-top:2rem;">
+    <div class="progress-title">⚡ Reglas de Oro — No Neociables</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1rem; margin-top:1rem;">
+      <div style="padding:1rem; border:1px solid var(--border); border-radius:3px; font-size:0.83rem; color:var(--muted); line-height:1.6;">
+        <span style="color:var(--accent); font-family:'Space Mono',monospace; font-size:0.65rem;">01</span><br>
+        <strong style="color:var(--text);">Sobrecarga progresiva:</strong> Cada semana haz una rep más, o aguanta 1s más en plancha. El crecimiento viene del desafío constante.
+      </div>
+      <div style="padding:1rem; border:1px solid var(--border); border-radius:3px; font-size:0.83rem; color:var(--muted); line-height:1.6;">
+        <span style="color:var(--accent3); font-family:'Space Mono',monospace; font-size:0.65rem;">02</span><br>
+        <strong style="color:var(--text);">Consistencia > Perfección:</strong> Mejor 6 meses de entrenos mediocres que 2 semanas perfectas y abandono. Show up every damn day.
+      </div>
+      <div style="padding:1rem; border:1px solid var(--border); border-radius:3px; font-size:0.83rem; color:var(--muted); line-height:1.6;">
+        <span style="color:var(--accent2); font-family:'Space Mono',monospace; font-size:0.65rem;">03</span><br>
+        <strong style="color:var(--text);">Fotos cada 2 semanas:</strong> La balanza miente. Las fotos no. Tómalas siempre con la misma luz y posición para comparar realmente.
+      </div>
+      <div style="padding:1rem; border:1px solid var(--border); border-radius:3px; font-size:0.83rem; color:var(--muted); line-height:1.6;">
+        <span style="color:var(--accent); font-family:'Space Mono',monospace; font-size:0.65rem;">04</span><br>
+        <strong style="color:var(--text);">Come en superávit:</strong> Si no comes más de lo que gastas, NO ganarás músculo. Target: +300–500 kcal sobre tu mantenimiento (~2,600 kcal).
+      </div>
+      <div style="padding:1rem; border:1px solid var(--border); border-radius:3px; font-size:0.83rem; color:var(--muted); line-height:1.6;">
+        <span style="color:var(--accent3); font-family:'Space Mono',monospace; font-size:0.65rem;">05</span><br>
+        <strong style="color:var(--text);">Técnica primero:</strong> Con mancuernas de 5 kg, el rango de movimiento completo y la contracción muscular valen más que el peso. Nunca sacrifiques forma.
+      </div>
+      <div style="padding:1rem; border:1px solid var(--border); border-radius:3px; font-size:0.83rem; color:var(--muted); line-height:1.6;">
+        <span style="color:var(--accent2); font-family:'Space Mono',monospace; font-size:0.65rem;">06</span><br>
+        <strong style="color:var(--text);">Paciencia:</strong> En 3 meses verás resultados reales. En 6 meses tu entorno te preguntará qué haces. El físico es el proyecto a largo plazo más honesto que existe.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">PAUSIAR.FIT</div>
+  <div class="footer-note">// Plan personalizado · 20 años · 1.83m · 58.8kg → 75kg</div>
+</footer>
+
+<script>
+  // Intersection Observer for bar animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.style.animationPlayState = 'paused';
+    observer.observe(bar);
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

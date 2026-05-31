@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "type": "routine",
+  "profileName": "Jose Luis",
+  "days": [
+    {
+      "dayOfWeek": 1,
+      "name": "Lunes",
+      "focus": "Fuerza de piernas y core",
+      "exercises": [
+        {
+          "name": "Sentadilla goblet pausada",
+          "muscleGroup": "Piernas",
+          "targetSets": 4,
+          "targetReps": "12",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Peso muerto rumano a una pierna",
+          "muscleGroup": "Piernas / Equilibrio",
+          "targetSets": 4,
+          "targetReps": "10 por lado",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Swing ruso",
+          "muscleGroup": "Potencia de cadera",
+          "targetSets": 4,
+          "targetReps": "20",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Flexiones",
+          "muscleGroup": "Empuje",
+          "targetSets": 4,
+          "targetReps": "12",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Farmer carry",
+          "muscleGroup": "Agarre / Core",
+          "targetSets": 3,
+          "targetReps": "45 s",
+          "notes": "Circuito B · 3 vueltas"
+        },
+        {
+          "name": "Plancha con arrastre de kettlebell",
+          "muscleGroup": "Core",
+          "targetSets": 3,
+          "targetReps": "30 s",
+          "notes": "Circuito B · 3 vueltas"
+        },
+        {
+          "name": "Plancha lateral",
+          "muscleGroup": "Oblicuos",
+          "targetSets": 3,
+          "targetReps": "30 s por lado",
+          "notes": "Circuito B · 3 vueltas"
+        }
+      ]
+    },
+    {
+      "dayOfWeek": 2,
+      "name": "Martes",
+      "focus": "Empuje y tirón",
+      "exercises": [
+        {
+          "name": "Clean + press",
+          "muscleGroup": "Potencia / Hombro",
+          "targetSets": 4,
+          "targetReps": "10 por lado",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Remo unilateral",
+          "muscleGroup": "Espalda",
+          "targetSets": 4,
+          "targetReps": "12 por lado",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Floor press",
+          "muscleGroup": "Pecho / Tríceps",
+          "targetSets": 4,
+          "targetReps": "12 por lado",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Flexiones",
+          "muscleGroup": "Empuje",
+          "targetSets": 4,
+          "targetReps": "10",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Halo",
+          "muscleGroup": "Hombros / Core",
+          "targetSets": 3,
+          "targetReps": "10 por lado",
+          "notes": "Circuito B · 3 vueltas"
+        },
+        {
+          "name": "Curl + press",
+          "muscleGroup": "Bíceps / Hombro",
+          "targetSets": 3,
+          "targetReps": "10",
+          "notes": "Circuito B · 3 vueltas"
+        },
+        {
+          "name": "Dead bug",
+          "muscleGroup": "Core",
+          "targetSets": 3,
+          "targetReps": "12 por lado",
+          "notes": "Circuito B · 3 vueltas"
+        }
+      ]
+    },
+    {
+      "dayOfWeek": 3,
+      "name": "Miércoles",
+      "focus": "Core y movilidad",
+      "exercises": [
+        {
+          "name": "Turkish get-up",
+          "muscleGroup": "Core / Técnica",
+          "targetSets": 4,
+          "targetReps": "4 por lado",
+          "notes": "Técnica"
+        },
+        {
+          "name": "Windmill",
+          "muscleGroup": "Core / Técnica",
+          "targetSets": 4,
+          "targetReps": "8 por lado",
+          "notes": "Técnica"
+        },
+        {
+          "name": "Marcha del granjero unilateral",
+          "muscleGroup": "Core / Estabilidad",
+          "targetSets": 4,
+          "targetReps": "45 s por lado",
+          "notes": "Técnica"
+        },
+        {
+          "name": "Movilidad de caderas",
+          "muscleGroup": "Movilidad",
+          "targetSets": 1,
+          "targetReps": "5 min",
+          "notes": "Movilidad · 20 min totales"
+        },
+        {
+          "name": "Movilidad de dorsales",
+          "muscleGroup": "Movilidad",
+          "targetSets": 1,
+          "targetReps": "5 min",
+          "notes": "Movilidad · 20 min totales"
+        },
+        {
+          "name": "Movilidad de hombros",
+          "muscleGroup": "Movilidad",
+          "targetSets": 1,
+          "targetReps": "5 min",
+          "notes": "Movilidad · 20 min totales"
+        },
+        {
+          "name": "Movilidad de tobillos",
+          "muscleGroup": "Movilidad",
+          "targetSets": 1,
+          "targetReps": "5 min",
+          "notes": "Movilidad · 20 min totales"
+        }
+      ]
+    },
+    {
+      "dayOfWeek": 4,
+      "name": "Jueves",
+      "focus": "Potencia",
+      "exercises": [
+        {
+          "name": "Swing ruso",
+          "muscleGroup": "Potencia de cadera",
+          "targetSets": 5,
+          "targetReps": "20",
+          "notes": "Circuito A · 5 vueltas"
+        },
+        {
+          "name": "Thruster",
+          "muscleGroup": "Piernas / Hombros",
+          "targetSets": 5,
+          "targetReps": "12",
+          "notes": "Circuito A · 5 vueltas"
+        },
+        {
+          "name": "High pull",
+          "muscleGroup": "Espalda / Potencia",
+          "targetSets": 5,
+          "targetReps": "12 por lado",
+          "notes": "Circuito A · 5 vueltas"
+        },
+        {
+          "name": "Flexiones",
+          "muscleGroup": "Empuje",
+          "targetSets": 5,
+          "targetReps": "12",
+          "notes": "Circuito A · 5 vueltas"
+        },
+        {
+          "name": "Zancadas caminando",
+          "muscleGroup": "Piernas",
+          "targetSets": 3,
+          "targetReps": "12 por pierna",
+          "notes": "Circuito B · 3 vueltas"
+        },
+        {
+          "name": "Russian twist",
+          "muscleGroup": "Core",
+          "targetSets": 3,
+          "targetReps": "20",
+          "notes": "Circuito B · 3 vueltas"
+        }
+      ]
+    },
+    {
+      "dayOfWeek": 5,
+      "name": "Viernes",
+      "focus": "Estabilidad y fuerza",
+      "exercises": [
+        {
+          "name": "Step-up",
+          "muscleGroup": "Piernas",
+          "targetSets": 4,
+          "targetReps": "12 por pierna",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Peso muerto + remo",
+          "muscleGroup": "Cadena posterior / Espalda",
+          "targetSets": 4,
+          "targetReps": "10 por lado",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Push press",
+          "muscleGroup": "Hombros / Potencia",
+          "targetSets": 4,
+          "targetReps": "10 por lado",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Flexiones",
+          "muscleGroup": "Empuje",
+          "targetSets": 4,
+          "targetReps": "10",
+          "notes": "Circuito A · 4 vueltas"
+        },
+        {
+          "name": "Farmer carry unilateral",
+          "muscleGroup": "Core / Agarre",
+          "targetSets": 3,
+          "targetReps": "45 s",
+          "notes": "Circuito B · 3 vueltas"
+        },
+        {
+          "name": "Plancha",
+          "muscleGroup": "Core",
+          "targetSets": 3,
+          "targetReps": "45 s",
+          "notes": "Circuito B · 3 vueltas"
+        },
+        {
+          "name": "Hollow hold",
+          "muscleGroup": "Core",
+          "targetSets": 3,
+          "targetReps": "30 s",
+          "notes": "Circuito B · 3 vueltas"
+        }
+      ]
+    }
+  ]
+}
