@@ -4,7 +4,11 @@
 /.idea
 .DS_Store
 /build
+/app/build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+.tools
+.vscode
+PausiarFit-debug.apk
