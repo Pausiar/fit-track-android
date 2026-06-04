@@ -11,10 +11,11 @@ App Android **100% offline** para seguir tu rutina de entrenamiento semanal. Cad
 La landing estática para descargar la APK se publica con GitHub Pages desde la carpeta `docs/`.
 
 - Web esperada: <https://pausiar.github.io/fit-track-android/>
-- Botón de descarga actual: <https://github.com/Pausiar/fit-track-android/raw/main/JoseLuisFit-debug.apk>
-- APK real detectada en el repositorio: `JoseLuisFit-debug.apk`
+- Botón de descarga actual: <https://github.com/Pausiar/fit-track-android/raw/main/JoseLuisFit-debug.apk>.
+- APK real detectada en el repositorio: `JoseLuisFit-debug.apk`.
+- La landing no duplica la APK dentro de `docs/` para evitar añadir binarios innecesarios al diff de la web.
 
-Si quieres servir la APK directamente desde GitHub Pages, copia el APK generado a `docs/downloads/fit-track.apk` y cambia los enlaces de descarga de `docs/index.html` a `./downloads/fit-track.apk`.
+Para actualizar la descarga pública, genera una nueva APK y sustituye `JoseLuisFit-debug.apk`, o publica una GitHub Release y actualiza los enlaces de descarga de `docs/index.html`.
 
 ### Generar una APK
 
@@ -28,11 +29,13 @@ Con Gradle, si tienes wrapper o Gradle instalado y Android SDK configurado:
 gradle assembleDebug
 ```
 
-La salida habitual queda en `app/build/outputs/apk/debug/`. Para actualizar la descarga pública, sustituye `JoseLuisFit-debug.apk` en la raíz o copia el APK a `docs/downloads/fit-track.apk` y actualiza la landing.
+La salida habitual queda en `app/build/outputs/apk/debug/`. Para actualizar la descarga pública, sustituye `JoseLuisFit-debug.apk` por la nueva build o cambia la landing para apuntar a una Release.
 
 ### Desplegar la web
 
-El workflow `.github/workflows/pages.yml` sube la carpeta `docs/` a GitHub Pages en cada push a `main`. Al ser HTML/CSS/JS estático, no hay dependencias ni paso de build web.
+El workflow `.github/workflows/pages.yml` sube la carpeta `docs/` a GitHub Pages en cada push a `main`. Al ser HTML/CSS/JS estático, no hay dependencias ni paso de build web. La web incluye páginas legales básicas (`privacy.html`, `cookies.html`, `legal-notice.html`, `terms.html`), `robots.txt`, `sitemap.xml` y favicon SVG.
+
+> Pendiente legal: completar los placeholders `[COMPLETAR: ...]` de responsable, contacto y domicilio/información fiscal antes de usar la web como comunicación legal definitiva.
 
 ---
 
