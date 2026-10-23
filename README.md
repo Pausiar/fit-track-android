@@ -4,8 +4,8 @@ App Android **100% offline** para seguir tu rutina de entrenamiento semanal. Cad
 
 > Kotlin + Jetpack Compose + Room. Sin backend, sin login, sin permiso de Internet.
 
-- **Web oficial:** <https://pausiar.github.io/fit-track-android/>
-- **Descarga:** <https://pausiar.github.io/fit-track-android/download.html>
+- **Web oficial:** <https://pausiar.github.io/fit-track-android/docs/>
+- **Descarga:** <https://pausiar.github.io/fit-track-android/docs/download.html>
 - **Repositorio:** <https://github.com/Pausiar/fit-track-android>
 - **Versión actual:** 1.1.0 (versionCode 2), APK firmada con clave de release.
 - **Paquete:** `com.pausiar.fit` · Android 8.0+ (API 26+).
