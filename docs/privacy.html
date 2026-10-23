@@ -3,63 +3,164 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; media-src 'none';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="dark" />
     <title>Política de privacidad — Fit Track</title>
-    <meta name="description" content="Política de privacidad de la web de descarga y la app Fit Track Android." />
+    <meta name="description" content="Política de privacidad de Fit Track: app Android 100% offline y web estática sin cookies ni analytics." />
     <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#07110d" />
+    <meta name="theme-color" content="#080a0e" />
     <link rel="canonical" href="https://pausiar.github.io/fit-track-android/privacy.html" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header class="site-header" aria-label="Navegación principal">
-      <nav class="nav shell">
-        <a class="brand" href="./index.html" aria-label="Volver a Fit Track">
-          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13h4l2-7 4 14 2-7h4v2h-2.5l-2.4 8h-2L10 12 9.5 15H4v-2Z"/></svg></span>
+
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Navegación principal">
+        <a class="brand" href="./index.html" aria-label="Fit Track, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
           <span>Fit Track</span>
         </a>
-        <div class="nav-links"><a href="./index.html#top">Inicio</a><a href="./index.html#instalacion">Descarga</a><a href="./index.html#privacidad">Privacidad</a></div>
+        <div class="nav-links">
+          <a href="./index.html#funciones">Funciones</a>
+          <a href="./index.html#como-funciona">Cómo funciona</a>
+          <a href="./download.html">Descarga</a>
+          <a href="./privacy.html" aria-current="page">Privacidad</a>
+          <a class="nav-cta" href="./downloads/fit-track-1.1.0.apk" data-download download="fit-track-1.1.0.apk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3 1.4 1.4-4.7 4.7-4.7-4.7 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1ZM5 18h14v2H5v-2Z" /></svg>
+            APK
+          </a>
+        </div>
       </nav>
     </header>
+
     <main id="contenido" class="legal-main shell">
-      <a class="legal-back" href="./index.html">← Volver a la landing</a>
-      <article class="legal-card">
-        <p class="eyebrow">Información legal</p>
-        <h1>Política de privacidad</h1>
-        <p class="muted">Última actualización: 4 de junio de 2026. Este texto es una plantilla básica para España/UE y debe ser revisado por un profesional antes de uso definitivo.</p>
+      <a class="legal-back" href="./index.html">← Volver al inicio</a>
 
-        <h2>1. Responsable</h2>
-        <p>Responsable del sitio y del proyecto: <strong>[COMPLETAR: nombre legal o responsable]</strong>.</p>
-        <ul>
-          <li>Contacto legal: <strong>[COMPLETAR: email de contacto legal]</strong>.</li>
-          <li>Domicilio o información fiscal: <strong>[COMPLETAR: domicilio o información fiscal si aplica]</strong>.</li>
-          <li>Proyecto/repo: <a href="https://github.com/Pausiar/fit-track-android" target="_blank" rel="noreferrer">github.com/Pausiar/fit-track-android</a>.</li>
-        </ul>
-        <h2>2. Datos recogidos por esta web</h2>
-        <p>La web de descarga es estática, no incluye formularios propios, analytics, tracking, embeds de terceros ni cookies no técnicas. La web no recoge datos personales directamente salvo los que el usuario facilite voluntariamente mediante enlaces externos o medios de contacto.</p>
-        <p>GitHub Pages y GitHub pueden tratar datos técnicos de acceso según sus propias condiciones y políticas cuando visitas páginas o descargas archivos alojados en GitHub.</p>
-        <h2>3. Datos tratados por la aplicación</h2>
-        <p>Según el código revisado, la aplicación almacena los datos de entrenamiento localmente en el dispositivo mediante Room/SQLite. El manifiesto Android no declara permiso de Internet y el proyecto no incluye backend ni login.</p>
-        <h2>4. Finalidad y base legal</h2>
-        <ul>
-          <li>Mantener una página informativa y facilitar la descarga de la APK: interés legítimo del responsable en publicar el proyecto.</li>
-          <li>Responder comunicaciones iniciadas voluntariamente por el usuario: consentimiento o medidas precontractuales, según el caso.</li>
-          <li>Permitir el funcionamiento local de la app: ejecución de la funcionalidad solicitada por el usuario en su dispositivo.</li>
-        </ul>
-        <h2>5. Conservación</h2>
-        <p>La web no conserva una base de datos propia con datos personales. Los datos de entrenamiento permanecen en el dispositivo del usuario hasta que este los borre, resetee la app o desinstale la aplicación.</p>
-        <h2>6. Destinatarios y servicios externos</h2>
-        <p>No se han detectado servicios de analítica, publicidad o seguimiento en la web. La descarga y el repositorio pueden implicar acceso a GitHub, sujeto a sus propias políticas.</p>
-        <h2>7. Derechos</h2>
-        <p>Las personas usuarias pueden solicitar acceso, rectificación, supresión, oposición, limitación y portabilidad cuando proceda escribiendo a <strong>[COMPLETAR: email de contacto legal]</strong>. También pueden reclamar ante la Agencia Española de Protección de Datos si consideran vulnerados sus derechos.</p>
+      <div class="legal-layout">
+        <aside class="legal-nav" aria-label="Documentos legales">
+          <p>Legal</p>
+          <a href="./privacy.html" aria-current="page">Privacidad</a>
+          <a href="./cookies.html">Cookies</a>
+          <a href="./legal-notice.html">Aviso legal</a>
+          <a href="./terms.html">Términos</a>
+          <a href="./download.html">Descarga</a>
+        </aside>
 
-      </article>
+        <article class="legal-card">
+          <p class="eyebrow">Información legal</p>
+          <h1>Política de privacidad</h1>
+          <p class="legal-updated">Última actualización: 23 de octubre de 2026 · versión 2.0</p>
+
+          <p>Esta política explica qué datos trata Fit Track, tanto la aplicación Android como esta web de descarga. El principio de diseño es sencillo: la app funciona en local y la web no recoge datos personales directamente.</p>
+
+          <h2>1. Responsable del tratamiento</h2>
+          <ul>
+            <li><strong>Titular:</strong> Pausiar, proyecto personal de desarrollo de software sin actividad comercial.</li>
+            <li><strong>Contacto para privacidad:</strong> <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">issues del repositorio en GitHub</a>. Este es el canal habilitado para solicitudes relacionadas con protección de datos.</li>
+            <li><strong>Naturaleza:</strong> proyecto gratuito, sin venta de productos, sin pagos y sin ánimo de lucro.</li>
+          </ul>
+          <p>No se ha designado un Delegado de Protección de Datos porque no concurren los supuestos del artículo 37 del RGPD.</p>
+
+          <h2>2. Ámbito de esta política</h2>
+          <p>Se aplica a:</p>
+          <ul>
+            <li>La web <strong>pausiar.github.io/fit-track-android</strong> y sus páginas legales y de descarga.</li>
+            <li>La aplicación Android <strong>Fit Track</strong> (paquete <code>com.pausiar.fit</code>), versión 1.1.0 y posteriores, distribuida mediante APK firmada.</li>
+          </ul>
+
+          <h2>3. Datos tratados por esta web</h2>
+          <p>La web es estática. No tiene formularios propios, registro, área privada, comentarios, analítica, píxeles publicitarios ni cookies no técnicas. Tampoco carga fuentes, scripts o imágenes desde dominios de terceros: todos los recursos son propios o se sirven desde el mismo dominio.</p>
+          <p>El alojamiento corre a cargo de <strong>GitHub Pages</strong>. GitHub puede registrar datos técnicos de la conexión (dirección IP, fecha y hora, agente de usuario, recurso solicitado) para prestar el servicio, mantener la seguridad y prevenir abusos. Esos registros los trata GitHub conforme a su propia política de privacidad y no se comparten con el titular de esta web.</p>
+          <ul>
+            <li><strong>Finalidad:</strong> servir la web y los archivos, seguridad y prevención de abusos.</li>
+            <li><strong>Base jurídica:</strong> interés legítimo en mantener el sitio disponible y seguro (art. 6.1.f RGPD), sin perfilado.</li>
+            <li><strong>Conservación:</strong> la que aplique GitHub a sus registros técnicos; esta web no mantiene una base de datos propia.</li>
+          </ul>
+
+          <h2>4. Datos tratados por la aplicación</h2>
+          <p>Fit Track está diseñada para funcionar sin conexión y sin cuenta. La rutina, los ejercicios, las notas, el progreso por fecha y el historial se almacenan <strong>únicamente en una base de datos Room/SQLite del dispositivo</strong>.</p>
+          <ul>
+            <li>El manifiesto Android <strong>no declara el permiso <code>INTERNET</code></strong>. La app no envía datos a servidores del titular ni de terceros.</li>
+            <li>No hay login, sincronización, publicidad, compras integradas ni SDK de analítica.</li>
+            <li>Las <strong>copias de seguridad automáticas de Android están desactivadas</strong> (<code>android:allowBackup="false"</code>) para evitar que los datos se suban a servicios de copia en la nube.</li>
+            <li>La exportación e importación JSON solo se ejecuta cuando la persona usuaria la inicia desde Ajustes y elige un archivo mediante el selector del sistema.</li>
+            <li>Al desinstalar la app se eliminan sus datos locales, salvo que previamente se haya exportado una copia.</li>
+          </ul>
+          <p>La app no solicita permisos de ubicación, contactos, cámara, micrófono, teléfono ni almacenamiento externo. No trata categorías especiales de datos del artículo 9 del RGPD. Los datos de entrenamiento son datos personales en la medida en que permitan identificar a una persona, pero permanecen bajo su control en el dispositivo.</p>
+
+          <h2>5. Finalidades y bases jurídicas</h2>
+          <ul>
+            <li><strong>Facilitar la descarga y el uso local de la app:</strong> ejecución de la relación solicitada por la persona usuaria (art. 6.1.b RGPD) e interés legítimo en publicar un proyecto gratuito (art. 6.1.f).</li>
+            <li><strong>Mantener la web disponible y segura:</strong> interés legítimo (art. 6.1.f), limitado a registros técnicos del alojamiento.</li>
+            <li><strong>Atender comunicaciones voluntarias:</strong> consentimiento al abrir un issue o contactar (art. 6.1.a) o medidas precontractuales, según el caso.</li>
+          </ul>
+          <p>No se toman decisiones automatizadas con efectos jurídicos ni se elaboran perfiles publicitarios.</p>
+
+          <h2>6. Destinatarios y transferencias internacionales</h2>
+          <p>No se venden, alquilan ni ceden datos personales. El único proveedor implicado en la web es GitHub (GitHub, Inc. / Microsoft), que actúa como encargado o responsable independiente del alojamiento. GitHub puede tratar datos fuera del Espacio Económico Europeo al amparo del Marco de Privacidad de Datos UE-EE. UU. o de cláusulas contractuales tipo. Puedes consultar su política en <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">docs.github.com</a>.</p>
+          <p>La app no tiene destinatarios: no hay servidores, APIs ni terceros que reciban los datos de entrenamiento.</p>
+
+          <h2>7. Conservación</h2>
+          <ul>
+            <li><strong>Web:</strong> no se conservan datos en una base propia. Los registros técnicos dependen de GitHub y de sus plazos de retención.</li>
+            <li><strong>App:</strong> los datos permanecen en el dispositivo hasta que se borren desde Ajustes, se restablezca la app o se desinstale. El titular de la web no tiene acceso a ellos.</li>
+            <li><strong>Comunicaciones:</strong> los issues o mensajes se conservan en GitHub mientras el repositorio esté público y la persona no solicite su eliminación.</li>
+          </ul>
+
+          <h2>8. Derechos de las personas usuarias</h2>
+          <p>Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad cuando proceda. Para ello, abre una solicitud en el <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">repositorio de GitHub</a> indicando el derecho que deseas ejercer y un medio de contacto. Si no quieres publicar datos personales en un issue, dilo expresamente para que se habilite un canal privado. También puedes solicitar la retirada de un issue que contenga datos personales.</p>
+          <p>Si consideras que el tratamiento no se ajusta a la normativa, puedes reclamar ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">aepd.es</a>), sin perjuicio de otros recursos.</p>
+
+          <h2>9. Menores de edad</h2>
+          <p>La app es una herramienta de registro deportivo y no está dirigida específicamente a menores de 14 años. No recoge datos de menores porque no hay registro ni servidor. Si un menor utiliza la app, será bajo la supervisión de su madre, padre o tutor legal.</p>
+
+          <h2>10. Seguridad</h2>
+          <p>La APK se distribuye firmada con el certificado de release del proyecto y acompañada de su SHA-256 y huella de certificado para que pueda verificarse. La app aplica minimización de permisos y funciona sin red. Ningún sistema es infalible: si detectas un problema de seguridad, comunícalo de forma responsable a través del repositorio antes de hacerlo público.</p>
+
+          <h2>11. Cambios en esta política</h2>
+          <p>Esta política puede actualizarse si cambian la app, la web o la normativa. La fecha de la cabecera indica la última revisión. Los cambios sustanciales se anunciarán en el repositorio. El uso continuado de la web o de la app después de una actualización implica la aceptación de la versión vigente, sin perjuicio de los derechos que correspondan.</p>
+
+          <h2>12. Contacto</h2>
+          <p>Para cualquier duda sobre privacidad, abre un issue en <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">github.com/Pausiar/fit-track-android/issues</a>. No se publica una dirección postal ni un correo electrónico por tratarse de un proyecto personal sin actividad comercial; si en el futuro se habilita un canal específico, se actualizará esta página.</p>
+
+          <div class="legal-note is-accent">
+            <strong>Resumen en una frase:</strong> la web no recoge datos personales directamente y la app guarda todo en tu móvil, sin permiso de Internet y sin copias automáticas en la nube.
+          </div>
+        </article>
+      </div>
     </main>
+
     <footer class="footer shell">
-      <span>© 2026 Fit Track / Pausiar</span>
-      <div class="footer-links"><a href="./privacy.html">Privacidad</a><a href="./cookies.html">Cookies</a><a href="./legal-notice.html">Aviso legal</a><a href="./terms.html">Términos</a></div>
+      <div class="footer-brand">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
+          <span>Fit Track</span>
+        </a>
+        <p>Proyecto personal de Pausiar. App Android 100% offline, sin ánimo de lucro ni actividad comercial.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./download.html">Descarga</a>
+        <a href="./privacy.html">Privacidad</a>
+        <a href="./cookies.html">Cookies</a>
+        <a href="./legal-notice.html">Aviso legal</a>
+        <a href="./terms.html">Términos</a>
+        <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">Contacto</a>
+      </div>
     </footer>
+    <div class="footer-bottom shell">
+      <span>© <span data-year>2026</span> Pausiar · Fit Track</span>
+      <span>Hecho para entrenar sin distracciones.</span>
+    </div>
+
     <script src="./script.js" defer></script>
   </body>
 </html>

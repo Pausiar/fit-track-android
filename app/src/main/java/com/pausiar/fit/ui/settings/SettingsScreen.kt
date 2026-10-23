@@ -44,6 +44,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.pausiar.fit.BuildConfig
 import com.pausiar.fit.ui.AppViewModelFactory
 import com.pausiar.fit.ui.components.ConfirmDialog
 import com.pausiar.fit.ui.theme.Accent
@@ -143,7 +144,7 @@ fun SettingsScreen(
             ) {
                 viewModel.export { json ->
                     pendingExport = json
-                    exportLauncher.launch("jose-luis-fit-backup.json")
+                    exportLauncher.launch("fit-track-backup.json")
                 }
             }
             SettingsRow(
@@ -204,7 +205,7 @@ fun SettingsScreen(
 
             Spacer(Modifier.height(8.dp))
             Text(
-                "Jose Luis Fit · 100% offline · v1.0\nModo oscuro permanente · Tus datos nunca salen del dispositivo.",
+                "Fit Track · 100% offline · v${BuildConfig.VERSION_NAME}\nModo oscuro permanente · Tus datos nunca salen del dispositivo.",
                 color = TextSecondary,
                 fontSize = 12.sp,
                 modifier = Modifier.padding(horizontal = 4.dp)

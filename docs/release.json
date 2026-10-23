@@ -1,0 +1,21 @@
+{
+  "app": "Fit Track",
+  "packageName": "com.pausiar.fit",
+  "version": "1.1.0",
+  "versionCode": 2,
+  "publishedAt": "2026-10-23",
+  "fileName": "fit-track-1.1.0.apk",
+  "url": "./downloads/fit-track-1.1.0.apk",
+  "sizeBytes": 11183198,
+  "sha256": "2787a361c2014174982e0d5a0f383448ea4c0a574c3ce802d382e0f691602310",
+  "minSdk": 26,
+  "targetSdk": 34,
+  "minAndroid": "8.0",
+  "signingCertificateSha256": "5F:18:5F:6E:D8:8A:57:35:7E:0C:52:10:07:A6:44:F7:BD:1C:7C:56:02:16:10:B2:CB:BB:38:F3:40:3B:85:82",
+  "changelog": [
+    "Firma de release oficial: la APK deja de usar el certificado de depuración de Android.",
+    "Nombre unificado como Fit Track en la app y en la web.",
+    "Copias de seguridad automáticas de Android desactivadas para reforzar el carácter local de los datos.",
+    "Descarga verificable con SHA-256 y huella del certificado publicados."
+  ]
+}

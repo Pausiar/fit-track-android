@@ -1,0 +1,5 @@
+Contact: https://github.com/Pausiar/fit-track-android/issues
+Expires: 2027-10-23T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://pausiar.github.io/fit-track-android/.well-known/security.txt
+Policy: https://pausiar.github.io/fit-track-android/terms.html

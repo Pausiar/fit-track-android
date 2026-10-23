@@ -74,7 +74,7 @@ fun DashboardScreen(
             ) {
                 Column(Modifier.weight(1f)) {
                     Text(
-                        "JOSE LUIS FIT",
+                        "FIT TRACK",
                         color = Accent,
                         fontWeight = FontWeight.Black,
                         fontSize = 22.sp,

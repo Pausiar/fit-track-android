@@ -3,53 +3,157 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; media-src 'none';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="dark" />
     <title>Términos y condiciones — Fit Track</title>
-    <meta name="description" content="Términos básicos de uso y descarga de Fit Track Android." />
+    <meta name="description" content="Términos de uso y descarga de Fit Track: licencia, instalación, datos locales, salud, garantías y responsabilidad." />
     <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#07110d" />
+    <meta name="theme-color" content="#080a0e" />
     <link rel="canonical" href="https://pausiar.github.io/fit-track-android/terms.html" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header class="site-header" aria-label="Navegación principal">
-      <nav class="nav shell">
-        <a class="brand" href="./index.html" aria-label="Volver a Fit Track">
-          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13h4l2-7 4 14 2-7h4v2h-2.5l-2.4 8h-2L10 12 9.5 15H4v-2Z"/></svg></span>
+
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Navegación principal">
+        <a class="brand" href="./index.html" aria-label="Fit Track, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
           <span>Fit Track</span>
         </a>
-        <div class="nav-links"><a href="./index.html#top">Inicio</a><a href="./index.html#instalacion">Descarga</a><a href="./index.html#privacidad">Privacidad</a></div>
+        <div class="nav-links">
+          <a href="./index.html#funciones">Funciones</a>
+          <a href="./index.html#como-funciona">Cómo funciona</a>
+          <a href="./download.html">Descarga</a>
+          <a href="./terms.html" aria-current="page">Términos</a>
+          <a class="nav-cta" href="./downloads/fit-track-1.1.0.apk" data-download download="fit-track-1.1.0.apk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3 1.4 1.4-4.7 4.7-4.7-4.7 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1ZM5 18h14v2H5v-2Z" /></svg>
+            APK
+          </a>
+        </div>
       </nav>
     </header>
+
     <main id="contenido" class="legal-main shell">
-      <a class="legal-back" href="./index.html">← Volver a la landing</a>
-      <article class="legal-card">
-        <p class="eyebrow">Información legal</p>
-        <h1>Términos y condiciones</h1>
-        <p class="muted">Última actualización: 4 de junio de 2026. Este texto es una plantilla básica para España/UE y debe ser revisado por un profesional antes de uso definitivo.</p>
+      <a class="legal-back" href="./index.html">← Volver al inicio</a>
 
-        <h2>1. Objeto</h2>
-        <p>Estos términos regulan el uso informativo de la web y la descarga de la APK de Fit Track Android.</p>
-        <h2>2. Descarga e instalación de APK</h2>
-        <p>La descarga se ofrece tal cual. La instalación de una APK fuera de tiendas oficiales puede requerir habilitar fuentes desconocidas y se realiza bajo responsabilidad del usuario.</p>
-        <h2>3. Uso de la aplicación</h2>
-        <p>Fit Track permite registrar rutinas y progreso de entrenamiento localmente. No sustituye asesoramiento médico, deportivo o profesional. Consulta con un profesional si tienes dudas sobre tu entrenamiento o salud.</p>
-        <h2>4. Ausencia de garantías</h2>
-        <p>El proyecto se proporciona sin garantías de disponibilidad, mantenimiento, ausencia de errores o adecuación a una finalidad concreta, en la medida permitida por la normativa aplicable.</p>
-        <h2>5. Propiedad intelectual y código</h2>
-        <p>El uso del código fuente, binarios y recursos queda condicionado por la licencia o permisos publicados en el repositorio. No se concede ningún permiso no indicado expresamente.</p>
-        <h2>6. Enlaces a terceros</h2>
-        <p>Los enlaces a GitHub u otros sitios externos se facilitan por conveniencia. Cada servicio externo se rige por sus propias condiciones.</p>
-        <h2>7. Contacto</h2>
-        <p>Para consultas legales o de soporte, utiliza <strong>[COMPLETAR: email de contacto legal]</strong>.</p>
+      <div class="legal-layout">
+        <aside class="legal-nav" aria-label="Documentos legales">
+          <p>Legal</p>
+          <a href="./privacy.html">Privacidad</a>
+          <a href="./cookies.html">Cookies</a>
+          <a href="./legal-notice.html">Aviso legal</a>
+          <a href="./terms.html" aria-current="page">Términos</a>
+          <a href="./download.html">Descarga</a>
+        </aside>
 
-      </article>
+        <article class="legal-card">
+          <p class="eyebrow">Información legal</p>
+          <h1>Términos y condiciones</h1>
+          <p class="legal-updated">Última actualización: 23 de octubre de 2026 · versión 2.0</p>
+
+          <p>Estos términos regulan el uso de la web de Fit Track y de la aplicación Android distribuida desde ella. Al descargar, instalar o usar la app aceptas estas condiciones. Si no estás de acuerdo, no la instales.</p>
+
+          <h2>1. Objeto</h2>
+          <p>Fit Track es una aplicación gratuita de registro de entrenamiento: rutina semanal, ejercicios, series, notas, historial y copias de seguridad JSON. La web informa del proyecto y facilita la descarga de la APK. El servicio se presta sin contraprestación económica.</p>
+
+          <h2>2. Licencia de uso</h2>
+          <p>Se concede una licencia personal, limitada, no exclusiva, no transferible y revocable para instalar y usar Fit Track en dispositivos Android propios o bajo tu control, con fines personales y no comerciales.</p>
+          <ul>
+            <li>No puedes vender, alquilar, sublicenciar ni distribuir la app como producto propio.</li>
+            <li>No puedes eliminar avisos de autoría ni usar la marca Fit Track para presentar versiones modificadas como oficiales.</li>
+            <li>No puedes eludir medidas técnicas ni realizar ingeniería inversa salvo en los supuestos permitidos por la ley.</li>
+            <li>El código fuente se publica en GitHub a efectos de transparencia; su reutilización se rige por lo que permitan la plataforma y la normativa aplicable.</li>
+          </ul>
+
+          <h2>3. Descarga e instalación</h2>
+          <ul>
+            <li>La descarga es gratuita y se realiza desde esta web o desde el repositorio oficial.</li>
+            <li>La APK está firmada con el certificado de release del proyecto. Publicamos el SHA-256 y la huella del certificado para que puedas verificarla.</li>
+            <li>Android puede mostrar avisos por instalar apps fuera de Play Store. Es un comportamiento del sistema, no un error del archivo.</li>
+            <li>Debes disponer de un dispositivo compatible (Android 8.0 o superior) y del espacio libre suficiente.</li>
+            <li>La versión 1.0 usaba firma de depuración. Para instalar la 1.1.0 o posteriores puede ser necesario desinstalar la versión anterior y perder los datos locales si no se exportaron antes.</li>
+          </ul>
+
+          <h2>4. Uso de la aplicación y salud</h2>
+          <p>Fit Track es una herramienta de registro. <strong>No es un dispositivo médico, no diagnostica, no trata enfermedades y no sustituye el criterio de un profesional sanitario o deportivo.</strong> Las rutinas, ejercicios y cargas son ejemplos o configuraciones del usuario.</p>
+          <ul>
+            <li>Consulta a un médico o profesional antes de empezar un programa de ejercicio, especialmente si tienes lesiones, patologías o dudas sobre tu salud.</li>
+            <li>Detén el ejercicio si sientes dolor, mareo, falta de aire anormal o cualquier síntoma preocupante.</li>
+            <li>La app no verifica la técnica, la seguridad del entorno ni la idoneidad de los ejercicios.</li>
+            <li>En caso de emergencia, contacta con los servicios sanitarios de tu país.</li>
+          </ul>
+
+          <h2>5. Datos, copias de seguridad y pérdida</h2>
+          <ul>
+            <li>Los datos se guardan en el almacenamiento local del dispositivo. No hay servidor ni sincronización.</li>
+            <li>Eres responsable de exportar copias JSON si quieres conservar el historial. La desinstalación, el borrado de datos de la app o un fallo del dispositivo pueden eliminarlos.</li>
+            <li>La copia automática de Android está desactivada por diseño. El titular no puede recuperar datos que no estén en tu dispositivo.</li>
+            <li>No uses la app como único registro de información crítica para tu salud o entrenamiento.</li>
+          </ul>
+
+          <h2>6. Actualizaciones y disponibilidad</h2>
+          <p>La app no se actualiza automáticamente porque no tiene permiso de Internet. Las nuevas versiones se publican en esta web y en el repositorio. No existe obligación de mantener versiones antiguas, corregir errores concretos ni garantizar compatibilidad con todos los dispositivos o versiones de Android. El sitio puede estar temporalmente no disponible por mantenimiento o causas ajenas.</p>
+
+          <h2>7. Propiedad intelectual</h2>
+          <p>El código, los textos, el diseño, el logotipo y la marca Fit Track pertenecen a Pausiar o se usan con autorización. La licencia de uso de la app no transfiere la titularidad de ningún derecho. Las marcas y nombres de terceros pertenecen a sus respectivos titulares.</p>
+
+          <h2>8. Ausencia de garantías</h2>
+          <p>En la medida permitida por la ley, la web y la app se proporcionan «tal cual» y «según disponibilidad», sin garantía de comerciabilidad, idoneidad para un fin concreto, exactitud, ausencia de errores o continuidad. Las personas consumidoras conservan los derechos imperativos que les reconoce la normativa española y europea.</p>
+
+          <h2>9. Responsabilidad</h2>
+          <p>El titular no responde de daños indirectos, lucro cesante, pérdida de datos o daños derivados del uso o imposibilidad de uso de la app, salvo que exista dolo o culpa grave. Nada en estos términos excluye o limita la responsabilidad por muerte o lesiones personales causadas por negligencia, por dolo o culpa grave, ni los derechos que no puedan excluirse legalmente.</p>
+          <p>El usuario es responsable del uso que haga de la app, de la configuración de su dispositivo, de la verificación del archivo descargado y de las copias de seguridad.</p>
+
+          <h2>10. Enlaces y servicios de terceros</h2>
+          <p>La web enlaza a GitHub. El titular no controla GitHub ni sus servicios, y no asume responsabilidad por sus contenidos, disponibilidad o políticas. El uso de GitHub se rige por sus propios términos.</p>
+
+          <h2>11. Modificaciones</h2>
+          <p>Estos términos pueden actualizarse cuando cambien la app, la web o la normativa. La fecha de la cabecera indica la última revisión. La versión vigente estará siempre publicada en esta página. Si un cambio es sustancial, se anunciará en el repositorio.</p>
+
+          <h2>12. Ley aplicable y resolución de conflictos</h2>
+          <p>Estos términos se rigen por la legislación española y el Derecho de la Unión Europea. Para personas consumidoras, la competencia judicial corresponde a los tribunales de su domicilio. Para el resto, a los tribunales legalmente competentes en España. Antes de acudir a la vía judicial, puedes plantear una consulta en el repositorio para intentar resolverla de forma amistosa.</p>
+
+          <h2>13. Contacto</h2>
+          <p>Consultas sobre estos términos: <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">github.com/Pausiar/fit-track-android/issues</a>.</p>
+
+          <div class="legal-note is-orange">
+            <strong>Aviso de salud.</strong> Fit Track no sustituye asesoramiento médico. Si tienes una lesión o una condición médica, consulta con un profesional antes de entrenar.
+          </div>
+        </article>
+      </div>
     </main>
+
     <footer class="footer shell">
-      <span>© 2026 Fit Track / Pausiar</span>
-      <div class="footer-links"><a href="./privacy.html">Privacidad</a><a href="./cookies.html">Cookies</a><a href="./legal-notice.html">Aviso legal</a><a href="./terms.html">Términos</a></div>
+      <div class="footer-brand">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
+          <span>Fit Track</span>
+        </a>
+        <p>Proyecto personal de Pausiar. App Android 100% offline, sin ánimo de lucro ni actividad comercial.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./download.html">Descarga</a>
+        <a href="./privacy.html">Privacidad</a>
+        <a href="./cookies.html">Cookies</a>
+        <a href="./legal-notice.html">Aviso legal</a>
+        <a href="./terms.html">Términos</a>
+        <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">Contacto</a>
+      </div>
     </footer>
+    <div class="footer-bottom shell">
+      <span>© <span data-year>2026</span> Pausiar · Fit Track</span>
+      <span>Hecho para entrenar sin distracciones.</span>
+    </div>
+
     <script src="./script.js" defer></script>
   </body>
 </html>

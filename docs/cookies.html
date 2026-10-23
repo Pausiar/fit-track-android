@@ -3,50 +3,128 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; media-src 'none';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="dark" />
     <title>Política de cookies — Fit Track</title>
-    <meta name="description" content="Política de cookies de la web estática de Fit Track Android." />
+    <meta name="description" content="Fit Track no usa cookies, analítica ni almacenamiento local en el navegador. Política de cookies de la web de descarga." />
     <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#07110d" />
+    <meta name="theme-color" content="#080a0e" />
     <link rel="canonical" href="https://pausiar.github.io/fit-track-android/cookies.html" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header class="site-header" aria-label="Navegación principal">
-      <nav class="nav shell">
-        <a class="brand" href="./index.html" aria-label="Volver a Fit Track">
-          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13h4l2-7 4 14 2-7h4v2h-2.5l-2.4 8h-2L10 12 9.5 15H4v-2Z"/></svg></span>
+
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Navegación principal">
+        <a class="brand" href="./index.html" aria-label="Fit Track, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
           <span>Fit Track</span>
         </a>
-        <div class="nav-links"><a href="./index.html#top">Inicio</a><a href="./index.html#instalacion">Descarga</a><a href="./index.html#privacidad">Privacidad</a></div>
+        <div class="nav-links">
+          <a href="./index.html#funciones">Funciones</a>
+          <a href="./index.html#como-funciona">Cómo funciona</a>
+          <a href="./download.html">Descarga</a>
+          <a href="./cookies.html" aria-current="page">Cookies</a>
+          <a class="nav-cta" href="./downloads/fit-track-1.1.0.apk" data-download download="fit-track-1.1.0.apk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3 1.4 1.4-4.7 4.7-4.7-4.7 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1ZM5 18h14v2H5v-2Z" /></svg>
+            APK
+          </a>
+        </div>
       </nav>
     </header>
+
     <main id="contenido" class="legal-main shell">
-      <a class="legal-back" href="./index.html">← Volver a la landing</a>
-      <article class="legal-card">
-        <p class="eyebrow">Información legal</p>
-        <h1>Política de cookies</h1>
-        <p class="muted">Última actualización: 4 de junio de 2026. Este texto es una plantilla básica para España/UE y debe ser revisado por un profesional antes de uso definitivo.</p>
+      <a class="legal-back" href="./index.html">← Volver al inicio</a>
 
-        <h2>1. Qué son las cookies</h2>
-        <p>Las cookies son pequeños archivos que un sitio web puede guardar en el navegador para recordar información técnica o preferencias.</p>
-        <h2>2. Cookies utilizadas por esta web</h2>
-        <p>Esta web estática no utiliza cookies propias, cookies publicitarias, analytics, tracking, píxeles, embeds de terceros ni scripts externos de seguimiento.</p>
-        <p>La única funcionalidad JavaScript incluida muestra animaciones de aparición con IntersectionObserver y no guarda identificadores ni preferencias en el navegador.</p>
-        <h2>3. Banner de cookies</h2>
-        <p>No se muestra banner de cookies porque no se cargan cookies no técnicas ni tecnologías equivalentes que requieran consentimiento previo.</p>
-        <h2>4. GitHub Pages y descargas externas</h2>
-        <p>El alojamiento en GitHub Pages y los enlaces al repositorio o descargas de GitHub pueden estar sujetos a las políticas de GitHub. Consulta la documentación y políticas de GitHub para más información.</p>
-        <h2>5. Gestión desde el navegador</h2>
-        <p>Puedes bloquear o eliminar cookies desde la configuración de tu navegador. Las rutas habituales están en los apartados de privacidad o seguridad de Chrome, Firefox, Safari, Edge u otros navegadores.</p>
+      <div class="legal-layout">
+        <aside class="legal-nav" aria-label="Documentos legales">
+          <p>Legal</p>
+          <a href="./privacy.html">Privacidad</a>
+          <a href="./cookies.html" aria-current="page">Cookies</a>
+          <a href="./legal-notice.html">Aviso legal</a>
+          <a href="./terms.html">Términos</a>
+          <a href="./download.html">Descarga</a>
+        </aside>
 
-      </article>
+        <article class="legal-card">
+          <p class="eyebrow">Información legal</p>
+          <h1>Política de cookies</h1>
+          <p class="legal-updated">Última actualización: 23 de octubre de 2026 · versión 2.0</p>
+
+          <p>Esta web no utiliza cookies propias ni tecnologías equivalentes. No hay banner de cookies porque no se instala ni se lee ningún identificador en el navegador.</p>
+
+          <h2>1. Qué son las cookies y tecnologías similares</h2>
+          <p>Las cookies son pequeños archivos que un sitio guarda en el navegador. También existen tecnologías equivalentes como <code>localStorage</code>, <code>sessionStorage</code>, IndexedDB, píxeles de seguimiento, huellas de dispositivo o almacenamiento en caché con identificadores.</p>
+
+          <h2>2. Qué utiliza esta web</h2>
+          <div class="stat-row"><span>Cookies propias</span><strong>Ninguna</strong></div>
+          <div class="stat-row"><span>Cookies de terceros</span><strong>Ninguna</strong></div>
+          <div class="stat-row"><span>Analítica o píxeles</span><strong>Ninguno</strong></div>
+          <div class="stat-row"><span>localStorage / sessionStorage</span><strong>No se usan</strong></div>
+          <div class="stat-row"><span>Fuentes, CDN o embeds externos</span><strong>Ninguno</strong></div>
+          <div class="stat-row"><span>Publicidad o perfilado</span><strong>Ninguno</strong></div>
+
+          <p>El único JavaScript propio hace tres cosas: animaciones de aparición con <code>IntersectionObserver</code>, lectura del archivo local <code>release.json</code> para mostrar la versión y el checksum, y la función de copiar al portapapeles cuando se pulsa un botón. No guarda identificadores ni preferencias en el navegador.</p>
+
+          <h2>3. Alojamiento en GitHub Pages</h2>
+          <p>El sitio se aloja en GitHub Pages. Como cualquier servidor web, GitHub recibe la petición HTTP y puede registrar datos técnicos (IP, agente de usuario, recurso y fecha) para operar el servicio y protegerlo frente a abusos. Esos registros no son cookies instaladas por esta web y se rigen por la <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">política de privacidad de GitHub</a>.</p>
+
+          <h2>4. Qué pasa al descargar la APK</h2>
+          <p>La descarga es una petición HTTP normal al mismo dominio. No se usa un gestor de descargas con cookies, no se abre una ventana emergente y no se redirige a un acortador. GitHub Pages puede registrar la petición del archivo como cualquier otro recurso.</p>
+
+          <h2>5. Cómo gestionar cookies en el navegador</h2>
+          <p>Aunque esta web no instala cookies, puedes revisar o borrar las de otros sitios desde la configuración de tu navegador:</p>
+          <ul>
+            <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios.</li>
+            <li><strong>Firefox:</strong> Ajustes → Privacidad y seguridad → Cookies y datos del sitio.</li>
+            <li><strong>Safari:</strong> Ajustes → Privacidad → Gestionar datos de sitios web.</li>
+            <li><strong>Edge:</strong> Configuración → Cookies y permisos del sitio.</li>
+          </ul>
+
+          <h2>6. Cambios</h2>
+          <p>Si en el futuro se añade una función que requiera cookies o almacenamiento local, se actualizará esta página y, cuando la normativa lo exija, se solicitará consentimiento previo. La fecha de la cabecera refleja la última revisión.</p>
+
+          <h2>7. Contacto</h2>
+          <p>Para dudas sobre cookies o privacidad, abre un issue en <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">github.com/Pausiar/fit-track-android/issues</a>.</p>
+
+          <div class="legal-note is-accent">
+            <strong>No hay nada que aceptar:</strong> esta web no usa cookies ni almacenamiento del navegador, por lo que no necesita un banner de consentimiento.
+          </div>
+        </article>
+      </div>
     </main>
+
     <footer class="footer shell">
-      <span>© 2026 Fit Track / Pausiar</span>
-      <div class="footer-links"><a href="./privacy.html">Privacidad</a><a href="./cookies.html">Cookies</a><a href="./legal-notice.html">Aviso legal</a><a href="./terms.html">Términos</a></div>
+      <div class="footer-brand">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
+          <span>Fit Track</span>
+        </a>
+        <p>Proyecto personal de Pausiar. App Android 100% offline, sin ánimo de lucro ni actividad comercial.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./download.html">Descarga</a>
+        <a href="./privacy.html">Privacidad</a>
+        <a href="./cookies.html">Cookies</a>
+        <a href="./legal-notice.html">Aviso legal</a>
+        <a href="./terms.html">Términos</a>
+        <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">Contacto</a>
+      </div>
     </footer>
+    <div class="footer-bottom shell">
+      <span>© <span data-year>2026</span> Pausiar · Fit Track</span>
+      <span>Hecho para entrenar sin distracciones.</span>
+    </div>
+
     <script src="./script.js" defer></script>
   </body>
 </html>

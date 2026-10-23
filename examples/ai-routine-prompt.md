@@ -1,4 +1,4 @@
-Convierte la rutina que te voy a pegar al JSON importable por Jose Luis Fit.
+Convierte la rutina que te voy a pegar al JSON importable por Fit Track.
 
 Devuelve solo JSON valido, sin markdown, sin comentarios y sin texto extra.
 

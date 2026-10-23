@@ -13,3 +13,14 @@ local.properties
 .vscode
 PausiarFit-debug.apk
 /.android-sdk
+
+# Release signing (never commit)
+keystore.properties
+keystore/
+*.jks
+*.keystore
+/JoseLuisFit-debug.apk
+
+.kotlin/
+__pycache__/
+*.pyc

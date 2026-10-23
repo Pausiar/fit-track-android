@@ -3,159 +3,451 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fit Track Android — Seguimiento local de entrenamientos</title>
-    <meta name="description" content="Descarga Fit Track para Android, una app simple para registrar rutinas, marcar rondas completadas y seguir tu progreso de entrenamiento de forma local." />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; media-src 'none';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="dark" />
+    <title>Fit Track — Entrenamiento 100% offline para Android</title>
+    <meta name="description" content="Fit Track es una app Android 100% offline para seguir tu rutina semanal, marcar series y conservar tu historial. APK firmada, verificable con SHA-256 y sin cuentas." />
     <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#07110d" />
+    <meta name="theme-color" content="#080a0e" />
     <link rel="canonical" href="https://pausiar.github.io/fit-track-android/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fit Track Android — Seguimiento local de entrenamientos" />
-    <meta property="og:description" content="Registra rutinas, marca rondas completadas y lleva el control de tu progreso desde el móvil." />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Fit Track" />
+    <meta property="og:title" content="Fit Track — Entrenamiento 100% offline para Android" />
+    <meta property="og:description" content="Tu rutina semanal, tus series y tu progreso. Sin cuentas, sin nube y sin anuncios. APK firmada y verificable." />
     <meta property="og:url" content="https://pausiar.github.io/fit-track-android/" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Fit Track Android — Seguimiento local de entrenamientos" />
-    <meta name="twitter:description" content="Descarga Fit Track para Android y controla tus series y progreso localmente." />
+    <meta property="og:image" content="https://pausiar.github.io/fit-track-android/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fit Track — Entrenamiento 100% offline para Android" />
+    <meta name="twitter:description" content="Rutina semanal, series e historial en tu dispositivo. APK firmada y verificable." />
+    <meta name="twitter:image" content="https://pausiar.github.io/fit-track-android/og-image.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header class="site-header" aria-label="Navegación principal">
-      <nav class="nav shell">
-        <a class="brand" href="#top" aria-label="Fit Track inicio">
-          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13h4l2-7 4 14 2-7h4v2h-2.5l-2.4 8h-2L10 12 9.5 15H4v-2Z"/></svg></span>
+
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Navegación principal">
+        <a class="brand" href="./index.html" aria-label="Fit Track, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
           <span>Fit Track</span>
         </a>
-        <div class="nav-links" aria-label="Enlaces de sección">
+        <div class="nav-links">
           <a href="#funciones">Funciones</a>
           <a href="#como-funciona">Cómo funciona</a>
-          <a href="#instalacion">Instalación</a>
           <a href="#privacidad">Privacidad</a>
+          <a href="./download.html">Descarga</a>
+          <a class="nav-cta" href="./downloads/fit-track-1.1.0.apk" data-download download="fit-track-1.1.0.apk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3 1.4 1.4-4.7 4.7-4.7-4.7 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1ZM5 18h14v2H5v-2Z" /></svg>
+            APK
+          </a>
         </div>
       </nav>
     </header>
 
     <main id="contenido">
-      <section id="top" class="hero section shell">
+      <section class="hero shell">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Android · offline · local-first</p>
-          <h1>Fit Track</h1>
-          <p class="hero-lead">Registra tus rutinas, marca rondas completadas y lleva el control de tu progreso desde el móvil.</p>
-          <div class="badges" aria-label="Puntos clave">
-            <span class="badge">Sin backend</span>
-            <span class="badge">Sin login</span>
-            <span class="badge">Room / SQLite</span>
-          </div>
-          <div class="hero-actions" aria-label="Acciones principales">
-            <a class="btn btn-primary" href="https://github.com/Pausiar/fit-track-android/raw/main/JoseLuisFit-debug.apk" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l2.3 2.3V4a1 1 0 0 1 1-1ZM5 18a1 1 0 0 1 1 1h12a1 1 0 1 1 0 2H6a3 3 0 0 1-3-3 1 1 0 1 1 2 0Z"/></svg>
-              Descargar APK
+          <p class="eyebrow">Android 8+ · 100% offline · sin cuenta</p>
+          <h1>FIT <span>TRACK</span></h1>
+          <p class="lead">Tu rutina semanal, tus series y tu progreso. Todo en el móvil, sin cuentas, sin nube y sin distracciones.</p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="./downloads/fit-track-1.1.0.apk" data-download download="fit-track-1.1.0.apk">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3 1.4 1.4-4.7 4.7-4.7-4.7 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1ZM5 18h14v2H5v-2Z" /></svg>
+              Descargar APK <span data-release-version>v1.1.0</span>
             </a>
-            <a class="btn btn-secondary" href="https://github.com/Pausiar/fit-track-android" target="_blank" rel="noreferrer">Ver código en GitHub</a>
+            <a class="btn btn-secondary" href="./download.html#verificar">Verificar descarga</a>
           </div>
-          <div class="apk-note" role="note">
-            <strong>APK real detectada:</strong> el botón descarga <code>JoseLuisFit-debug.apk</code> desde la rama <code>main</code> del repositorio, sin duplicar binarios dentro de <code>docs/</code>.
+
+          <div class="hero-meta">
+            <div class="meta-chip"><span class="dot" aria-hidden="true"></span>Versión <strong data-release-version-plain>1.1.0</strong></div>
+            <div class="meta-chip is-cyan"><span class="dot" aria-hidden="true"></span><strong data-release-size>11,2 MB</strong></div>
+            <div class="meta-chip is-orange"><span class="dot" aria-hidden="true"></span>Android <strong data-release-android>8.0+</strong></div>
+            <div class="meta-chip"><span class="dot" aria-hidden="true"></span>Firma <strong>release</strong></div>
+          </div>
+
+          <div class="hero-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Zm-1 13.2-3.1-3.1 1.4-1.4 1.7 1.7 4.4-4.4 1.4 1.4-5.8 5.8Z" /></svg>
+            <span>Esta build está firmada con el certificado de release del proyecto. Si tenías la versión anterior (debug), desinstálala antes: Android no permite actualizar entre firmas distintas.</span>
           </div>
         </div>
 
-        <div class="phone-stage reveal" aria-label="Mockup visual de la aplicación Fit Track">
-          <div class="glow-orb" aria-hidden="true"></div>
-          <div class="phone">
-            <div class="phone-top"><span></span></div>
+        <div class="phone-stage reveal" aria-label="Vista previa de la pantalla principal de Fit Track">
+          <span class="orb" aria-hidden="true"></span>
+          <span class="orb is-cyan" aria-hidden="true"></span>
+
+          <div class="phone" aria-hidden="true">
             <div class="screen">
-              <div class="screen-header"><p>Hoy · Piernas</p><strong>78%</strong></div>
-              <div class="progress-ring" aria-hidden="true"><span>11/14</span></div>
-              <div class="workout-card active"><span>Sentadilla goblet</span><small>4 series · 12 reps</small><div class="sets"><i></i><i></i><i></i><i class="empty"></i></div></div>
-              <div class="workout-card"><span>Zancadas</span><small>3 series · 10 por lado</small><div class="sets"><i></i><i></i><i class="empty"></i></div></div>
-              <div class="mini-chart" aria-hidden="true"><b style="height:42%"></b><b style="height:70%"></b><b style="height:52%"></b><b style="height:88%"></b><b style="height:63%"></b></div>
+              <div class="status-bar">
+                <span>9:41</span>
+                <span class="status-icons"><i></i><i></i><i></i></span>
+              </div>
+
+              <div class="app-head">
+                <div class="app-brand">
+                  <strong>FIT TRACK</strong>
+                  <span>Lunes, 23 de octubre</span>
+                </div>
+                <div class="app-icons">
+                  <span><svg viewBox="0 0 24 24"><path d="M12 8v5l3 2M3 12a9 9 0 1 0 3-6.7L3 8" /></svg></span>
+                  <span><svg viewBox="0 0 24 24"><path d="m4 20 4-1 11-11-3-3L5 16l-1 4ZM14 5l3 3" /></svg></span>
+                  <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3 1a7 7 0 0 0-1.7-1L14.5 3h-5l-.4 2.1a7 7 0 0 0-1.7 1l-2.3-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 1.7 1l.4 2.1h5l.4-2.1a7 7 0 0 0 1.7-1l2.3 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z" /></svg></span>
+                </div>
+              </div>
+
+              <div class="today-card">
+                <div class="today-top">
+                  <span class="tag-label">HOY</span>
+                  <span class="tag">PIERNAS Y CORE</span>
+                </div>
+                <h3>Lunes</h3>
+                <div class="today-stats">
+                  <div><b>78%</b><span>Progreso</span></div>
+                  <div><b>5/7</b><span>Ejercicios</span></div>
+                  <div><b>11/14</b><span>Series</span></div>
+                </div>
+                <div class="progress bar-78"><i></i></div>
+                <div class="train-btn">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z" /></svg>
+                  Entrenar hoy
+                </div>
+              </div>
+
+              <p class="week-label">TU SEMANA</p>
+
+              <div class="week-card is-today">
+                <div class="week-row">
+                  <span class="week-dot"></span>
+                  <strong>Lunes</strong>
+                  <span class="tag">PIERNAS Y CORE</span>
+                </div>
+                <div class="week-progress">
+                  <div class="progress bar-78"><i></i></div>
+                  <span>11/14 series</span>
+                </div>
+              </div>
+
+              <div class="week-card">
+                <div class="week-row">
+                  <span class="week-dot is-cyan"></span>
+                  <strong>Martes</strong>
+                  <span class="tag is-cyan">EMPUJE Y TIRÓN</span>
+                </div>
+                <div class="week-progress">
+                  <div class="progress is-cyan bar-43"><i></i></div>
+                  <span>6/14 series</span>
+                </div>
+              </div>
+
+              <div class="week-card">
+                <div class="week-row">
+                  <span class="week-dot is-cyan"></span>
+                  <strong>Miércoles</strong>
+                  <span class="tag is-cyan">CORE Y MOVILIDAD</span>
+                </div>
+                <div class="week-progress">
+                  <div class="progress is-cyan bar-25"><i></i></div>
+                  <span>2/8 series</span>
+                </div>
+              </div>
+
+              <div class="week-card">
+                <div class="week-row">
+                  <span class="week-dot is-orange"></span>
+                  <strong>Jueves</strong>
+                  <span class="tag is-orange">POTENCIA</span>
+                </div>
+                <div class="week-progress">
+                  <div class="progress is-orange bar-0"><i></i></div>
+                  <span>0/14 series</span>
+                </div>
+              </div>
+
+              <div class="week-card">
+                <div class="week-row">
+                  <span class="week-dot is-full"></span>
+                  <strong>Viernes</strong>
+                  <span class="tag is-full">ESTABILIDAD</span>
+                </div>
+                <div class="week-progress">
+                  <div class="progress is-full bar-0"><i></i></div>
+                  <span>0/14 series</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="floating-card card-a"><strong>Racha</strong><span>historial diario</span></div>
-          <div class="floating-card card-b"><strong>Datos locales</strong><span>en tu dispositivo</span></div>
+
+          <div class="phone-badge badge-a">
+            <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Zm-1 13.2-3.1-3.1 1.4-1.4 1.7 1.7 4.4-4.4 1.4 1.4-5.8 5.8Z" /></svg>
+            <div><b>Firma release</b><span>certificado del proyecto</span></div>
+          </div>
+          <div class="phone-badge badge-b">
+            <svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3H4v8h16v-8h-1v-3a7 7 0 0 0-7-7Zm-5 10v-3a5 5 0 0 1 10 0v3H7Z" /></svg>
+            <div><b>Sin conexión</b><span>datos solo en tu móvil</span></div>
+          </div>
         </div>
       </section>
 
+      <div class="shell reveal">
+        <div class="trust-strip" aria-label="Características de seguridad y privacidad">
+          <div class="trust-item"><strong>0 cuentas</strong><span>Sin registro ni login</span></div>
+          <div class="trust-item"><strong>0 anuncios</strong><span>Sin SDK publicitario</span></div>
+          <div class="trust-item"><strong>0 permisos de red</strong><span>La app no declara Internet</span></div>
+          <div class="trust-item"><strong>SHA-256</strong><span>Descarga comprobable</span></div>
+        </div>
+      </div>
+
       <section id="funciones" class="section shell">
         <div class="section-heading reveal">
-          <p class="eyebrow">Funciones confirmadas</p>
-          <h2>Control de entrenamiento sin fricción.</h2>
-          <p>La app está pensada para abrir la rutina durante el entrenamiento, marcar series y consultar el avance del día sin depender de servicios externos.</p>
+          <p class="eyebrow">Funciones</p>
+          <h2>Diseñada para usarla mientras entrenas.</h2>
+          <p>Una casilla por serie, progreso por fecha y todo guardado al instante. Sin menús de más ni pasos que rompan el ritmo.</p>
         </div>
+
         <div class="feature-grid">
-          <article class="feature-card reveal"><span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13h4l2-7 4 14 2-7h4v2h-2.5l-2.4 8h-2L10 12 9.5 15H4v-2Z"/></svg></span><h3>Seguimiento de rutinas</h3><p>Rutina semanal con días y ejercicios para organizar cada sesión.</p></article>
-          <article class="feature-card reveal"><span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.6 16.2 18.7 8l-1.4-1.4-6.7 6.8-3.1-3.1-1.4 1.4 4.5 4.5ZM12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Z"/></svg></span><h3>Rondas por ejercicio</h3><p>Casillas táctiles para completar o desmarcar cada serie de un ejercicio.</p></article>
-          <article class="feature-card reveal"><span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19h14v2H5V3h2v16Zm3-2V9h3v8H8Zm5 0V5h3v12h-3Zm5 0v-6h3v6h-3Z"/></svg></span><h3>Progreso diario</h3><p>Resumen de hoy, historial, días entrenados, series totales y rachas.</p></article>
-          <article class="feature-card reveal"><span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V6l-8-3Zm0 2.2 6 2.3V12c0 3.8-2.3 6.4-6 6.9-3.7-.5-6-3.1-6-6.9V7.5l6-2.3Z"/></svg></span><h3>Local-first</h3><p>El progreso se guarda en Room/SQLite dentro del dispositivo Android.</p></article>
-          <article class="feature-card reveal"><span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 2h8a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H8Zm2 13h4v2h-4v-2Z"/></svg></span><h3>Uso móvil rápido</h3><p>Interfaz Compose optimizada para consultar y marcar durante la sesión.</p></article>
-          <article class="feature-card reveal"><span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h14v4H5V4Zm0 6h14v10H5V10Zm2 2v6h10v-6H7Zm2 1h6v2H9v-2Z"/></svg></span><h3>Backup JSON</h3><p>Exporta e importa tus datos o rutinas mediante archivos JSON.</p></article>
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg></span>
+            <h3>Tracking por series</h3>
+            <p>Una casilla grande y táctil por cada serie, con animación al marcarla. La interacción central de la app.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3" /><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" /></svg></span>
+            <h3>Guardado automático</h3>
+            <p>Cada marca se persiste al instante en Room/SQLite. Cierra la app y recupera el progreso donde lo dejaste.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg></span>
+            <h3>Historial y rachas</h3>
+            <p>Días entrenados, series totales, racha actual y mejor racha. Progreso independiente para cada fecha.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h7M4 12h16M4 18h10" /><circle cx="16" cy="6" r="2" /><circle cx="19" cy="18" r="2" /></svg></span>
+            <h3>Rutina editable</h3>
+            <p>Añade, edita o elimina ejercicios de cada día. Ajusta series, repeticiones, grupo muscular y notas.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3" /></svg></span>
+            <h3>Backup JSON</h3>
+            <p>Exporta todos tus datos o importa una rutina hecha a mano o generada por una IA. Tú decides qué se mueve.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3H4v8h16v-8h-1v-3a7 7 0 0 0-7-7Zm-5 10v-3a5 5 0 0 1 10 0v3H7Z" /></svg></span>
+            <h3>Privacidad real</h3>
+            <p>Sin permiso de Internet, sin backend y con las copias automáticas de Android desactivadas. Tus datos no salen del móvil.</p>
+          </article>
         </div>
       </section>
 
       <section id="como-funciona" class="section shell">
         <div class="section-heading reveal">
           <p class="eyebrow">Cómo funciona</p>
-          <h2>Cuatro pasos para entrenar y registrar.</h2>
+          <h2>De la descarga a la primera serie.</h2>
+          <p>Sin registro, sin configuración de servidor y sin pasos ocultos. Instalas, abres y empiezas.</p>
         </div>
+
         <div class="steps-grid">
-          <article class="step reveal"><span class="step-number">1</span><h3>Descarga la APK</h3><p>Usa el botón principal y guarda el archivo en tu Android.</p></article>
-          <article class="step reveal"><span class="step-number">2</span><h3>Instala la app</h3><p>Abre el archivo y permite la instalación desde el navegador si Android lo solicita.</p></article>
-          <article class="step reveal"><span class="step-number">3</span><h3>Abre tu rutina</h3><p>Consulta el día actual o edita los ejercicios según tu planificación.</p></article>
-          <article class="step reveal"><span class="step-number">4</span><h3>Marca cada ronda</h3><p>Completa series, revisa el porcentaje del día y conserva tu historial local.</p></article>
+          <article class="step reveal">
+            <span class="step-number">1</span>
+            <h3>Descarga la APK</h3>
+            <p>Usa el botón de descarga de esta web. El archivo se sirve desde el mismo dominio y tiene checksum publicado.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-number">2</span>
+            <h3>Permite la instalación</h3>
+            <p>Android pedirá autorizar la instalación desde el navegador o el gestor de archivos. Es el aviso normal de cualquier APK fuera de Play Store.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-number">3</span>
+            <h3>Abre tu rutina</h3>
+            <p>La app arranca con una rutina semanal de ejemplo. Puedes editarla o importar la tuya en JSON.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-number">4</span>
+            <h3>Marca cada serie</h3>
+            <p>Toca las casillas al completar. El progreso queda ligado a la fecha y alimenta el panel de hoy y el historial.</p>
+          </article>
         </div>
       </section>
 
-      <section id="instalacion" class="section shell split">
-        <div class="download-card reveal">
-          <p class="eyebrow">Instalación</p>
-          <h2>APK directa para Android.</h2>
-          <p>El repositorio contiene una APK real en la raíz y la web enlaza a su descarga directa desde GitHub para evitar duplicar binarios en la carpeta publicada.</p>
-          <div class="apk-status"><span>Ruta: <code>JoseLuisFit-debug.apk</code> vía GitHub raw</span></div>
-          <div class="hero-actions" style="margin-top:1.4rem"><a class="btn btn-primary" href="https://github.com/Pausiar/fit-track-android/raw/main/JoseLuisFit-debug.apk" download>Descargar APK</a></div>
-        </div>
-        <div class="download-grid">
-          <article class="step reveal"><span class="step-number">A</span><h3>Permisos Android</h3><p>Si Android lo pide, habilita instalaciones desde el navegador o gestor de archivos.</p></article>
-          <article class="step reveal"><span class="step-number">B</span><h3>Sin cuenta</h3><p>La app no incluye backend ni flujo de login en el proyecto revisado.</p></article>
-          <article class="step reveal"><span class="step-number">C</span><h3>Offline</h3><p>El manifiesto no declara permiso de Internet y la persistencia está en Room.</p></article>
-          <article class="step reveal"><span class="step-number">D</span><h3>Actualización</h3><p>Para publicar una nueva build, reemplaza <code>JoseLuisFit-debug.apk</code> en la raíz o publica una Release y actualiza los enlaces.</p></article>
+      <section id="descarga" class="section section-tight shell">
+        <div class="split">
+          <div class="download-panel reveal">
+            <p class="eyebrow">Descarga oficial</p>
+            <h2>APK firmada y verificable.</h2>
+            <p>Descarga directa desde GitHub Pages, gratis y sin redirecciones a terceros. Publicamos versión, tamaño, SHA-256 y huella del certificado para que puedas comprobar el archivo.</p>
+
+            <div class="download-row">
+              <a class="btn btn-primary" href="./downloads/fit-track-1.1.0.apk" data-download download="fit-track-1.1.0.apk">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3 1.4 1.4-4.7 4.7-4.7-4.7 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1ZM5 18h14v2H5v-2Z" /></svg>
+                Descargar <span data-release-file>fit-track-1.1.0.apk</span>
+              </a>
+              <span class="download-status" data-download-status>
+                <span class="dot" aria-hidden="true"></span>
+                <span data-download-status-text>Descarga directa disponible</span>
+              </span>
+            </div>
+
+            <div class="download-facts">
+              <div class="fact"><span>Versión</span><strong><span data-release-version>v1.1.0</span> · código <span data-release-code>2</span></strong></div>
+              <div class="fact"><span>Tamaño</span><strong data-release-size>11,2 MB</strong></div>
+              <div class="fact"><span>Compatibilidad</span><strong>Android <span data-release-android>8.0+</span></strong></div>
+              <div class="fact"><span>Publicada</span><strong data-release-date>23 de octubre de 2026</strong></div>
+            </div>
+
+            <div class="hash-box">
+              <span>SHA-256 del APK</span>
+              <div class="hash-row">
+                <code class="hash-value" id="apk-sha" data-release-sha>2787a361c2014174982e0d5a0f383448ea4c0a574c3ce802d382e0f691602310</code>
+                <button class="copy-btn" type="button" data-copy-target="#apk-sha" data-label="Copiar">Copiar</button>
+              </div>
+            </div>
+            <p class="small muted download-extra">También disponible el <a href="./downloads/fit-track-1.1.0.apk.sha256" data-checksum-link download>.sha256</a> y la <a href="./download.html#verificar">guía de verificación</a>. Al descargar aceptas los <a href="./terms.html">términos de uso</a> y la <a href="./privacy.html">política de privacidad</a>.</p>
+          </div>
+
+          <div class="download-side">
+            <article class="side-card warning-card reveal">
+              <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2Zm0 5.7L19.5 19h-15L12 7.7ZM11 10v5h2v-5h-2Zm0 6.5v2h2v-2h-2Z" /></svg>Antes de instalar</h3>
+              <p>La versión 1.0 se distribuyó firmada con la clave de depuración. Para pasar a la 1.1.0 hay que desinstalar la anterior; al hacerlo se borran sus datos locales.</p>
+              <ul>
+                <li>Si quieres conservar el progreso, <strong>exporta un backup JSON</strong> desde Ajustes antes de desinstalar.</li>
+                <li>Después instala esta APK e importa el JSON desde Ajustes.</li>
+              </ul>
+            </article>
+
+            <article class="side-card reveal">
+              <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Zm-1 13.2-3.1-3.1 1.4-1.4 1.7 1.7 4.4-4.4 1.4 1.4-5.8 5.8Z" /></svg>Firma oficial</h3>
+              <p>Certificado de release <code>CN=Fit Track, O=Pausiar</code>. Huella SHA-256:</p>
+              <div class="hash-box">
+                <div class="hash-row">
+                  <code class="hash-value" id="cert-sha" data-release-fingerprint>5F:18:5F:6E:D8:8A:57:35:7E:0C:52:10:07:A6:44:F7:BD:1C:7C:56:02:16:10:B2:CB:BB:38:F3:40:3B:85:82</code>
+                  <button class="copy-btn" type="button" data-copy-target="#cert-sha" data-label="Copiar">Copiar</button>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="privacidad" class="section shell split">
-        <div class="privacy-card reveal">
-          <p class="eyebrow">Privacidad</p>
-          <h2>Datos de entrenamiento locales.</h2>
-          <p>Según el código revisado, Fit Track almacena rutina y progreso en una base de datos Room/SQLite dentro del dispositivo. La web estática no incluye formularios, cookies de seguimiento, analytics ni embeds de terceros.</p>
-          <div class="badges"><span class="badge">Sin cookies no técnicas</span><span class="badge">Sin analytics</span><span class="badge">Sin formularios</span></div>
+      <section id="privacidad" class="section shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow is-cyan">Privacidad</p>
+          <h2>Los datos se quedan en tu dispositivo.</h2>
+          <p>Fit Track no tiene backend, no pide cuenta y no declara permiso de Internet en el manifiesto de Android. La web tampoco usa cookies, analytics ni fuentes externas.</p>
         </div>
-        <div class="card reveal" aria-label="Resumen visual de progreso semanal" style="padding:1.6rem">
-          <h3>Semana actual</h3>
-          <div class="week-row" aria-hidden="true"><span class="done">L</span><span class="done">M</span><span>X</span><span class="done">J</span><span>V</span><span>S</span><span>D</span></div>
-          <div class="bars" aria-hidden="true"><span style="height:62%"></span><span style="height:82%"></span><span style="height:35%"></span><span style="height:74%"></span><span style="height:48%"></span></div>
-          <div class="stat-row"><strong>Series completadas</strong><span>local</span></div>
-          <div class="stat-row"><strong>Rachas</strong><span>historial</span></div>
+
+        <div class="privacy-panel">
+          <div class="privacy-copy reveal">
+            <h3>Local-first de verdad</h3>
+            <p>La rutina y el progreso viven en una base de datos Room/SQLite dentro del móvil. Las copias automáticas de Android están desactivadas para que los datos no se envíen a servicios de copia en la nube.</p>
+            <p>La única forma de sacar datos es que tú lo pidas desde Ajustes: exportar un JSON o compartir un archivo. No hay sincronización, publicidad ni rastreo.</p>
+            <div class="badges">
+              <span class="badge">Sin cookies</span>
+              <span class="badge">Sin analytics</span>
+              <span class="badge">Sin formularios</span>
+              <span class="badge">Sin permisos de red</span>
+            </div>
+          </div>
+
+          <div class="privacy-stats reveal">
+            <h3>En una mirada</h3>
+            <div class="stat-row"><span>Datos de entrenamiento</span><strong class="is-accent">Solo en el móvil</strong></div>
+            <div class="stat-row"><span>Permiso de Internet</span><strong>No declarado</strong></div>
+            <div class="stat-row"><span>Cuentas o login</span><strong>No</strong></div>
+            <div class="stat-row"><span>Copia automática Android</span><strong>Desactivada</strong></div>
+            <div class="stat-row"><span>Cookies o analítica web</span><strong class="is-cyan">Ninguna</strong></div>
+            <div class="stat-row"><span>Venta de datos</span><strong>Nunca</strong></div>
+          </div>
         </div>
       </section>
 
-      <section class="section shell">
+      <section class="section section-tight shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Instalación, seguridad y dudas típicas.</h2>
+        </div>
+
+        <div class="faq reveal">
+          <details>
+            <summary>Android dice que la APK no es segura. ¿Es normal?</summary>
+            <p>Sí. Android avisa siempre que instalas una app fuera de Play Store, aunque esté correctamente firmada. Lo importante es que la firma sea válida y que el archivo venga del origen oficial. Puedes comprobar el SHA-256 y la huella del certificado en la <a href="./download.html#verificar">guía de verificación</a>. Play Protect puede seguir mostrando un aviso genérico por tratarse de un desarrollador no verificado por Google; no implica que el APK esté manipulado.</p>
+          </details>
+          <details>
+            <summary>¿Por qué tengo que desinstalar la versión anterior?</summary>
+            <p>La 1.0 estaba firmada con la clave de depuración de Android. Android no permite actualizar una app si la firma cambia. Desinstala la 1.0, instala la 1.1.0 y, si quieres conservar el progreso, exporta e importa un backup JSON. A partir de ahora todas las versiones usarán la misma firma release.</p>
+          </details>
+          <details>
+            <summary>¿Cómo verifico que el archivo no se ha modificado?</summary>
+            <p>Calcula el SHA-256 del APK descargado y compáralo con el publicado en esta web o en <code>release.json</code>. En Windows puedes usar <code>Get-FileHash .\fit-track-1.1.0.apk -Algorithm SHA256</code>; en macOS o Linux, <code>sha256sum fit-track-1.1.0.apk</code>. La guía completa está en <a href="./download.html#verificar">Descarga → Verificar</a>.</p>
+          </details>
+          <details>
+            <summary>¿La app se actualiza sola?</summary>
+            <p>No. Fit Track no tiene permiso de Internet ni servicio de actualización. Cuando publiquemos una versión nueva, tendrás que descargarla e instalarla manualmente. La firma se mantiene para que puedas actualizar sobre la versión anterior sin desinstalar.</p>
+          </details>
+          <details>
+            <summary>¿Funciona en iPhone o en Android antiguos?</summary>
+            <p>Es una app Android nativa (Kotlin + Jetpack Compose) para Android 8.0 o superior. No hay versión para iOS ni web. En Android anteriores a 8.0 no se puede instalar.</p>
+          </details>
+          <details>
+            <summary>¿La app sustituye a un entrenador o a un médico?</summary>
+            <p>No. Fit Track es una herramienta de registro. No ofrece diagnóstico, tratamiento ni planes personalizados. Consulta a un profesional sanitario o deportivo antes de empezar una rutina, especialmente si tienes lesiones o patologías.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section section-tight shell">
         <div class="final-cta reveal">
-          <p class="eyebrow">Descarga</p>
-          <h2>Entrena, marca y sigue avanzando.</h2>
-          <p>Fit Track mantiene la experiencia sencilla: rutinas, series completadas, progreso y privacidad por defecto.</p>
-          <div class="hero-actions" style="justify-content:center"><a class="btn btn-primary" href="https://github.com/Pausiar/fit-track-android/raw/main/JoseLuisFit-debug.apk" download>Descargar APK</a><a class="btn btn-secondary" href="https://github.com/Pausiar/fit-track-android" target="_blank" rel="noreferrer">Repositorio</a></div>
+          <p class="eyebrow">Empieza hoy</p>
+          <h2>Tu progreso, en tu bolsillo y bajo tu control.</h2>
+          <p>Descarga la APK firmada, verifica el checksum y entrena sin depender de una cuenta ni de una conexión.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="./downloads/fit-track-1.1.0.apk" data-download download="fit-track-1.1.0.apk">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3 1.4 1.4-4.7 4.7-4.7-4.7 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1ZM5 18h14v2H5v-2Z" /></svg>
+              Descargar APK <span data-release-version>v1.1.0</span>
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/Pausiar/fit-track-android" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer shell">
-      <span>© 2026 Fit Track / Pausiar</span>
-      <div class="footer-links" aria-label="Enlaces legales y del proyecto">
-        <a href="https://github.com/Pausiar/fit-track-android" target="_blank" rel="noreferrer">GitHub</a>
+      <div class="footer-brand">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13.6 2 5.4 13.2h5.1L9.1 22l8.5-11.5h-5.2L13.6 2Z" /></svg>
+          </span>
+          <span>Fit Track</span>
+        </a>
+        <p>Proyecto personal de Pausiar. App Android 100% offline, sin ánimo de lucro ni actividad comercial.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./download.html">Descarga</a>
         <a href="./privacy.html">Privacidad</a>
         <a href="./cookies.html">Cookies</a>
         <a href="./legal-notice.html">Aviso legal</a>
         <a href="./terms.html">Términos</a>
+        <a href="https://github.com/Pausiar/fit-track-android/issues" target="_blank" rel="noopener noreferrer">Contacto</a>
       </div>
     </footer>
+    <div class="footer-bottom shell">
+      <span>© <span data-year>2026</span> Pausiar · Fit Track</span>
+      <span>Hecho para entrenar sin distracciones.</span>
+    </div>
+
     <script src="./script.js" defer></script>
   </body>
 </html>
