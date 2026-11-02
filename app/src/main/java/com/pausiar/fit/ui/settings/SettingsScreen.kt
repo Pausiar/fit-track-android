@@ -62,13 +62,12 @@ fun SettingsScreen(
     viewModel: SettingsViewModel = viewModel(factory = AppViewModelFactory.factory)
 ) {
     val context = LocalContext.current
-    var pendingExport by remember { mutableStateOf<String?>(null) }
     var confirm by remember { mutableStateOf<Confirm?>(null) }
 
     val exportLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.CreateDocument("application/json")
     ) { uri ->
-        val data = pendingExport
+        val data = viewModel.takePendingExport()
         if (uri != null && data != null) {
             runCatching {
                 context.contentResolver.openOutputStream(uri)?.use { it.write(data.toByteArray()) }
@@ -78,7 +77,6 @@ fun SettingsScreen(
                 Toast.makeText(context, "Error al exportar", Toast.LENGTH_SHORT).show()
             }
         }
-        pendingExport = null
     }
 
     val importLauncher = rememberLauncherForActivityResult(
@@ -142,8 +140,7 @@ fun SettingsScreen(
                 subtitle = "Guarda rutina y progreso en un archivo JSON",
                 tint = Accent
             ) {
-                viewModel.export { json ->
-                    pendingExport = json
+                viewModel.export {
                     exportLauncher.launch("fit-track-backup.json")
                 }
             }
