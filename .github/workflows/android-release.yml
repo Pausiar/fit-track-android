@@ -78,9 +78,16 @@ jobs:
             echo "::error::El tag $GITHUB_REF_NAME no coincide con versionName $VERSION"
             exit 1
           fi
+          CERT_HEX="$("$BUILD_TOOLS/apksigner" verify --print-certs "$APK" | sed -n 's/^Signer #1 certificate SHA-256 digest: //p' | head -1)"
+          if [ -z "$CERT_HEX" ]; then
+            echo "::error::No se ha podido leer la huella SHA-256 del certificado de firma"
+            exit 1
+          fi
+          CERT="$(printf '%s' "$CERT_HEX" | sed 's/../&:/g; s/:$//' | tr '[:lower:]' '[:upper:]')"
           {
             echo "version=$VERSION"
             echo "version_code=$CODE"
+            echo "cert_sha256=$CERT"
           } >> "$GITHUB_ENV"
 
       - name: Upload APK artifact
@@ -114,6 +121,8 @@ jobs:
       - name: Publish download metadata to main
         env:
           GH_TOKEN: ${{ github.token }}
+          FIT_KEYSTORE_PASSWORD: ${{ secrets.FIT_KEYSTORE_PASSWORD }}
+          FIT_KEY_ALIAS: ${{ secrets.FIT_KEY_ALIAS }}
         run: |
           set -euo pipefail
           git config --global user.name "github-actions[bot]"
@@ -123,11 +132,19 @@ jobs:
           rm -rf "$WORKTREE"
           git worktree add --detach "$WORKTREE" origin/main
           cd "$WORKTREE"
+          # La huella publicada debe ser la del certificado que firma este APK:
+          # si se rota la clave, el valor anterior de release.json queda obsoleto.
+          "$JAVA_HOME/bin/keytool" -exportcert -rfc \
+            -keystore "$GITHUB_WORKSPACE/keystore/release.jks" \
+            -alias "$FIT_KEY_ALIAS" \
+            -storepass:env FIT_KEYSTORE_PASSWORD \
+            -file docs/fit-track-release.pem
           python3 scripts/update_release.py \
             --apk "$GITHUB_WORKSPACE/app/build/outputs/apk/release/app-release.apk" \
             --version "$version" \
             --version-code "$version_code" \
             --published-at "$(date -u +%F)" \
+            --cert-sha256 "$cert_sha256" \
             --update-html
           python3 scripts/check-site.py
           git add docs

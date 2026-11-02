@@ -7,7 +7,7 @@ App Android **100% offline** para seguir tu rutina de entrenamiento semanal. Cad
 - **Web oficial:** <https://pausiar.github.io/fit-track-android/docs/>
 - **Descarga:** <https://pausiar.github.io/fit-track-android/docs/download.html>
 - **Repositorio:** <https://github.com/Pausiar/fit-track-android>
-- **Versión actual:** 1.1.0 (versionCode 2), APK firmada con clave de release.
+- **Versión actual:** 1.1.1 (versionCode 3), APK firmada con clave de release.
 - **Paquete:** `com.pausiar.fit` · Android 8.0+ (API 26+).
 
 ---
@@ -81,8 +81,11 @@ La APK pública **no** se firma con la clave de depuración de Android. Se usa u
 
 - Alias: `fittrack`
 - Certificado: `CN=Fit Track, OU=Pausiar, O=Pausiar, C=ES`
-- SHA-256 del certificado:
-  `5F:18:5F:6E:D8:8A:57:35:7E:0C:52:10:07:A6:44:F7:BD:1C:7C:56:02:16:10:B2:CB:BB:38:F3:40:3B:85:82`
+- SHA-256 vigente: la de [`docs/release.json`](docs/release.json), replicada en `docs/fit-track-release.pem`. El workflow las regenera en cada publicación.
+
+> **Rotación en la 1.1.1:** la clave original no está recuperable, así que desde la 1.1.1 la app se firma con una clave nueva. La 1.1.0 se firmó con
+> `5F:18:5F:6E:D8:8A:57:35:7E:0C:52:10:07:A6:44:F7:BD:1C:7C:56:02:16:10:B2:CB:BB:38:F3:40:3B:85:82` (histórico).
+> Al cambiar la firma, Android exige desinstalar la 1.1.0 antes de instalar la 1.1.1.
 
 El certificado público está en [`docs/fit-track-release.pem`](docs/fit-track-release.pem) para que cualquiera pueda compararlo con `apksigner verify --print-certs`.
 
@@ -90,7 +93,7 @@ El certificado público está en [`docs/fit-track-release.pem`](docs/fit-track-r
 
 ### Configuración local
 
-Ya hay una clave generada en este workspace. Si necesitas crear otra (por ejemplo, en otro equipo), ejecuta:
+En este workspace no queda clave generada: hay que crearla (o restaurar una copia segura) antes de poder firmar. Para crearla, ejecuta:
 
 ```bash
 ./scripts/create-release-keystore.sh
