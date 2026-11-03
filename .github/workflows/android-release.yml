@@ -10,8 +10,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: android-release
@@ -23,7 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -154,19 +151,6 @@ jobs:
             git commit -m "chore: publish Fit Track $version"
             git push origin HEAD:main
           fi
-          # El push con GITHUB_TOKEN no dispara pages.yml: desplegamos aquí
-          # el mismo árbol que acabamos de publicar en main.
-          rm -rf "$GITHUB_WORKSPACE/docs"
-          cp -a "$WORKTREE/docs" "$GITHUB_WORKSPACE/docs"
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          # pages.yml despliega al terminarse este workflow: el push de arriba con
+          # GITHUB_TOKEN no dispara los hooks de push, y deploy-pages solo acepta
+          # despliegues desde main, no desde un ref de tag.

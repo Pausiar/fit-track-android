@@ -3,6 +3,12 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+  # El workflow de release empuja docs a main con GITHUB_TOKEN, y ese push no
+  # dispara «on: push». Desplegamos al terminarlo, sea cual sea su conclusión:
+  # aquí se despliega main, que ya valida check-site.py.
+  workflow_run:
+    workflows: ["Android signed release"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
