@@ -151,6 +151,7 @@ jobs:
             git commit -m "chore: publish Fit Track $version"
             git push origin HEAD:main
           fi
-          # pages.yml despliega al terminarse este workflow: el push de arriba con
-          # GITHUB_TOKEN no dispara los hooks de push, y deploy-pages solo acepta
-          # despliegues desde main, no desde un ref de tag.
+          # No desplegamos Pages desde aquí: deploy-pages solo acepta refs de main,
+          # no de un tag. Pages construye la rama main por su cuenta (Sources:
+          # main /), así que el push de arriba ya publica la web. pages.yml se
+          # limita a validar main porque un push con GITHUB_TOKEN no dispara «on: push».

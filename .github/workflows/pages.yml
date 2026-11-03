@@ -1,30 +1,15 @@
-name: Deploy GitHub Pages
+name: Validate GitHub Pages site
 
 on:
   push:
     branches: [main]
-  # El workflow de release empuja docs a main con GITHUB_TOKEN, y ese push no
-  # dispara «on: push». Desplegamos al terminarlo, sea cual sea su conclusión:
-  # aquí se despliega main, que ya valida check-site.py.
-  workflow_run:
-    workflows: ["Android signed release"]
-    types: [completed]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,14 +18,7 @@ jobs:
       - name: Validate site and APK metadata
         run: python3 scripts/check-site.py
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # Pages se publica con el build legacy de la rama main (Sources: main /),
+      # así que la web ya está en línea cuando este job termina. Un fallo aquí
+      # señala que main publica algo roto: hay que corregirlo con un push nuevo,
+      # no revierte el sitio.

@@ -66,12 +66,12 @@ La web no usa cookies, analytics, formularios, fuentes externas ni CDN. El JavaS
    python3 scripts/check-site.py
    ```
 
-4. Haz commit de `docs/downloads/`, `docs/release.json` y los cambios de las páginas. El workflow `pages.yml` valida y despliega `docs/` en cada push a `main`.
+4. Haz commit de `docs/downloads/`, `docs/release.json` y los cambios de las páginas. GitHub Pages construye `main` automáticamente (Sources: rama `main`, carpeta raíz), así que el push publica la web en `https://pausiar.github.io/fit-track-android/docs/`.
 
 ### Workflows
 
-- **`.github/workflows/pages.yml`**: valida `docs/` con `scripts/check-site.py` y publica en GitHub Pages.
-- **`.github/workflows/android-release.yml`**: al empujar un tag `vX.Y.Z`, compila la APK de release con los secretos de firma, verifica el certificado con `apksigner`, crea una GitHub Release con APK + `.sha256`, actualiza `docs/` en `main` y despliega Pages. Así una publicación posterior en `main` no revierte la web a una versión anterior.
+- **`.github/workflows/pages.yml`**: valida `docs/` con `scripts/check-site.py` en cada push a `main`. No despliega: quien publica es el build legacy de Pages.
+- **`.github/workflows/android-release.yml`**: al empujar un tag `vX.Y.Z`, compila la APK de release con los secretos de firma, verifica el certificado con `apksigner`, crea una GitHub Release con APK + `.sha256` y actualiza `docs/` en `main`. Así una publicación posterior en `main` no revierte la web a una versión anterior.
 
 ---
 
