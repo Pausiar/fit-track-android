@@ -1,21 +1,19 @@
 {
   "app": "Fit Track",
   "packageName": "com.pausiar.fit",
-  "version": "1.1.0",
-  "versionCode": 2,
-  "publishedAt": "2026-10-23",
-  "fileName": "fit-track-1.1.0.apk",
-  "url": "./downloads/fit-track-1.1.0.apk",
+  "version": "1.1.1",
+  "versionCode": 3,
+  "publishedAt": "2026-11-03",
+  "fileName": "fit-track-1.1.1.apk",
+  "url": "./downloads/fit-track-1.1.1.apk",
   "sizeBytes": 11183198,
-  "sha256": "2787a361c2014174982e0d5a0f383448ea4c0a574c3ce802d382e0f691602310",
+  "sha256": "294e5eb2184a146ea392ed8f6bfc28a115506d581efcaa588d3c49a1f4e74b23",
   "minSdk": 26,
   "targetSdk": 34,
   "minAndroid": "8.0",
-  "signingCertificateSha256": "5F:18:5F:6E:D8:8A:57:35:7E:0C:52:10:07:A6:44:F7:BD:1C:7C:56:02:16:10:B2:CB:BB:38:F3:40:3B:85:82",
+  "signingCertificateSha256": "46:01:C5:FD:AD:18:45:FA:B3:D4:BD:16:A2:1A:BC:39:60:2C:A6:D1:C8:E7:FC:5B:B7:FB:38:09:01:3D:32:1C",
   "changelog": [
-    "Firma de release oficial: la APK deja de usar el certificado de depuración de Android.",
-    "Nombre unificado como Fit Track en la app y en la web.",
-    "Copias de seguridad automáticas de Android desactivadas para reforzar el carácter local de los datos.",
-    "Descarga verificable con SHA-256 y huella del certificado publicados."
+    "Versión 1.1.1 firmada y publicada el 3 de noviembre de 2026.",
+    "Consulta las notas de la release en GitHub para el detalle de cambios."
   ]
 }
