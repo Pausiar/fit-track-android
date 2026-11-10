@@ -1,19 +1,19 @@
 {
   "app": "Fit Track",
   "packageName": "com.pausiar.fit",
-  "version": "1.1.1",
-  "versionCode": 3,
-  "publishedAt": "2026-11-03",
-  "fileName": "fit-track-1.1.1.apk",
-  "url": "./downloads/fit-track-1.1.1.apk",
+  "version": "1.2.0",
+  "versionCode": 4,
+  "publishedAt": "2026-11-10",
+  "fileName": "fit-track-1.2.0.apk",
+  "url": "./downloads/fit-track-1.2.0.apk",
   "sizeBytes": 11183198,
-  "sha256": "294e5eb2184a146ea392ed8f6bfc28a115506d581efcaa588d3c49a1f4e74b23",
+  "sha256": "61ce81aa7b6705e3721e913e4ba942ed310716f3798654e06b5be1c28a7afc14",
   "minSdk": 26,
   "targetSdk": 34,
   "minAndroid": "8.0",
   "signingCertificateSha256": "46:01:C5:FD:AD:18:45:FA:B3:D4:BD:16:A2:1A:BC:39:60:2C:A6:D1:C8:E7:FC:5B:B7:FB:38:09:01:3D:32:1C",
   "changelog": [
-    "Versión 1.1.1 firmada y publicada el 3 de noviembre de 2026.",
+    "Versión 1.2.0 firmada y publicada el 10 de noviembre de 2026.",
     "Consulta las notas de la release en GitHub para el detalle de cambios."
   ]
 }
