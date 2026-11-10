@@ -83,6 +83,10 @@ class DashboardViewModel(
         }.stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = DashboardUiState()
+            initialValue = DashboardUiState(
+                todayPretty = DateUtils.prettyDate(today),
+                todayDayId = DateUtils.isoDayOfWeek(today),
+                todayDateIso = DateUtils.toIso(today)
+            )
         )
 }

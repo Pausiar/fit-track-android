@@ -658,6 +658,17 @@ h4 { font-size: 0.95rem; font-weight: 750; }
 .feature-card:nth-child(3n) .feature-icon { color: var(--orange); background: var(--orange-soft); }
 .feature-card p { margin: 0.55rem 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
 
+/* ---------- Activity heatmap ---------- */
+.heatmap-panel {
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(560px 240px at 50% 0%, rgba(232, 255, 0, 0.07), transparent 70%),
+    var(--surface);
+}
+.heatmap-img { width: 100%; height: auto; }
+
 /* ---------- Steps ---------- */
 .steps-grid {
   display: grid;

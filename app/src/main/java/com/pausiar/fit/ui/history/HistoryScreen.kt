@@ -108,6 +108,9 @@ fun HistoryScreen(
                     StatBox("${state.stats.totalCompletedSets}", "Series totales", TextPrimary, Modifier.weight(1f))
                 }
             }
+            item {
+                ActivityHeatmapCard(state.entries)
+            }
 
             item {
                 Row(

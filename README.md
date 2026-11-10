@@ -179,13 +179,18 @@ La app no es un producto sanitario ni sustituye asesoramiento médico. Los térm
 - **Por fecha**: cada día del calendario tiene su propio progreso, así la rutina semanal se repite sin perder el historial.
 - **Panel de hoy**: resumen del entrenamiento del día (porcentaje, ejercicios y series).
 - **Vista semanal**: estado de los 7 días de la semana en curso.
-- **Historial y rachas**: días entrenados, series totales, racha actual y mejor racha.
+- **Historial y rachas**: días entrenados, series totales, racha actual y mejor racha, con mapa de actividad anual estilo GitHub.
 - **Editor de rutina**: añadir, editar y eliminar ejercicios por día.
 - **Copia de seguridad**: exportar e importar todos los datos en JSON.
 - **Rutinas personalizadas por JSON**: rutina simple creada a mano o generada por una IA.
 - **Ajustes de reseteo**: resetear hoy, la semana, todo el progreso o restaurar la rutina por defecto.
 - **Modo oscuro permanente** con la paleta de la marca.
 - **Sin permiso de Internet** y con copias automáticas de Android desactivadas.
+
+### Cambios en 1.2.0
+
+- Mapa de actividad anual estilo GitHub en el Historial: un cuadrado por día con la intensidad de las series completadas.
+- Actualización directa desde la 1.1.1 (misma firma release).
 
 ### Cambios en 1.1.0
 
