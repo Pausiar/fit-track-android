@@ -13,7 +13,8 @@
   "minAndroid": "8.0",
   "signingCertificateSha256": "46:01:C5:FD:AD:18:45:FA:B3:D4:BD:16:A2:1A:BC:39:60:2C:A6:D1:C8:E7:FC:5B:B7:FB:38:09:01:3D:32:1C",
   "changelog": [
-    "Versión 1.2.0 firmada y publicada el 10 de noviembre de 2026.",
-    "Consulta las notas de la release en GitHub para el detalle de cambios."
+    "Mapa de actividad anual estilo GitHub en el Historial: un cuadrado por día con la intensidad de tus series completadas.",
+    "La tarjeta de actividad muestra el último año completo con leyenda de intensidad, junto a las rachas y los días entrenados.",
+    "Misma firma release que la 1.1.1: actualiza sin desinstalar y conserva tus datos."
   ]
 }
